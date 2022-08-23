@@ -1,0 +1,17 @@
+uuid: e6636375-f370-4ed1-a2c2-16ea2b16eb59
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.webform
+  module:
+    - node
+    - webform
+id: lider_jornada_unica
+label: 'Docente o directivo docente'
+weight: 4
+is_admin: null
+permissions:
+  - 'create webform content'
+  - 'edit own webform content'
+  - 'view own webform submission'

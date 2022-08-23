@@ -1,0 +1,22 @@
+name: ju-theme
+type: theme
+description: 'ju-theme subtheme based on Bootstrap 5 theme.'
+core_version_requirement: '^8.9 || ^9'
+'base theme': bootstrap5
+libraries:
+  - jutheme/fa_cdn
+  - jutheme/fonts_cdn
+  - jutheme/slider_cdn
+  - jutheme/material_cdn
+  - jutheme/global-styling
+regions:
+  header: Header
+  nav_branding: 'Navigation branding region'
+  nav_main: 'Main navigation region'
+  nav_additional: 'Additional navigation region (eg search form, social icons, etc)'
+  banner_site: Banner del sitio
+  breadcrumb: Breadcrumbs
+  content: 'Main content'
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  footer: Footer

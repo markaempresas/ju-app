@@ -1,0 +1,47 @@
+uuid: 91193b21-edd4-4760-a0c3-0b184146662a
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.buttons_item.field_button_icon
+    - field.field.paragraph.buttons_item.field_button_link
+    - field.field.paragraph.buttons_item.field_button_title
+    - paragraphs.paragraphs_type.buttons_item
+  module:
+    - image
+    - link
+id: paragraph.buttons_item.default
+targetEntityType: paragraph
+bundle: buttons_item
+mode: default
+content:
+  field_button_icon:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_button_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_button_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

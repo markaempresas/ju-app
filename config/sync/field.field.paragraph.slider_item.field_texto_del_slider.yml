@@ -1,0 +1,19 @@
+uuid: 1f3f0451-7b50-4f9c-8e4d-c26d8daf6ec9
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_texto_del_slider
+    - paragraphs.paragraphs_type.slider_item
+id: paragraph.slider_item.field_texto_del_slider
+field_name: field_texto_del_slider
+entity_type: paragraph
+bundle: slider_item
+label: 'Texto del slider'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

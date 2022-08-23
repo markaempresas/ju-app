@@ -1,0 +1,12 @@
+uuid: c92e3b4b-817f-42a4-8963-b3c02619f44f
+langcode: es
+status: true
+dependencies: {  }
+id: miembros_del_consejo_directivo_d
+label: 'Miembros del consejo directivo del Establecimiento Educativo '
+category: General
+likert: false
+options: |-
+  'Nombres y apellidos': 'Nombres y apellidos'
+  Teléfono: Teléfono
+  'Correo electrónico': 'Correo electrónico'

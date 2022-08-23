@@ -1,0 +1,22 @@
+uuid: 028a6c30-799b-402c-83d9-1af13b6aba49
+langcode: es
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - jutheme
+_core:
+  default_config_hash: 0aClN3lBlLrbJHzRSh0ivMBbWMaC60NFCx31iDQwSzQ
+id: jutheme_help
+theme: jutheme
+region: content
+weight: -4
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

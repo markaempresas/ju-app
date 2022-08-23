@@ -1,0 +1,30 @@
+global-styling:
+  version: 9.x
+  js:
+    assets/js/theme.js: {}
+  css:
+    component:
+      assets/css/theme.css: {}
+
+slider_cdn:
+  js:
+    '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js': { type: external, minified: true }
+  css:
+    theme:
+      '//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css': { type: external, minified: true }
+      '//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css': { type: external, minified: true }
+
+fonts_cdn:
+  css:
+    theme:
+      '//fonts.googleapis.com/css2?family=Shadows+Into+Light&family=Work+Sans:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap': { type: external, minified: true }
+
+material_cdn:
+  css:
+    theme:
+      '//fonts.googleapis.com/icon?family=Material+Icons': { type: external, minified: true }
+
+fa_cdn:
+  css:
+    theme:
+      '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css': { type: external, minified: true }

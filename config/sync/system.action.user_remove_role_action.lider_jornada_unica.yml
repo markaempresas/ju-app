@@ -1,0 +1,14 @@
+uuid: 4f21eea5-d6f8-4ad6-aaea-083ed31658f6
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.lider_jornada_unica
+  module:
+    - user
+id: user_remove_role_action.lider_jornada_unica
+label: 'Elimina el rol Líder Jornada Única al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: lider_jornada_unica

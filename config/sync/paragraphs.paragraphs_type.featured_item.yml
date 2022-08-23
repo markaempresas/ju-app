@@ -1,0 +1,10 @@
+uuid: df359832-37bb-4166-8c14-791f9b1659cb
+langcode: es
+status: true
+dependencies: {  }
+id: featured_item
+label: 'Ítem de destacado'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

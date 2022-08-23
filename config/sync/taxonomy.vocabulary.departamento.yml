@@ -1,0 +1,8 @@
+uuid: c56c1298-1866-4248-96b4-495356cecfcb
+langcode: es
+status: true
+dependencies: {  }
+name: Departamento
+vid: departamento
+description: 'Departamentos de Colombia'
+weight: 0

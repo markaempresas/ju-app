@@ -1,0 +1,35 @@
+uuid: 8358ab26-bd02-4d4c-bc4f-fe31af0783e1
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.home_collection.field_content_module_home
+    - paragraphs.paragraphs_type.home_collection
+  module:
+    - paragraphs
+id: paragraph.home_collection.default
+targetEntityType: paragraph
+bundle: home_collection
+mode: default
+content:
+  field_content_module_home:
+    type: paragraphs
+    weight: 0
+    region: content
+    settings:
+      title: Párrafo
+      title_plural: Parráfos
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

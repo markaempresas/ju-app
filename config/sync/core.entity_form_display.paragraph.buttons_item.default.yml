@@ -1,0 +1,45 @@
+uuid: e74dfda1-8b56-46cc-b1c0-b1acfcc062e5
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.buttons_item.field_button_icon
+    - field.field.paragraph.buttons_item.field_button_link
+    - field.field.paragraph.buttons_item.field_button_title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.buttons_item
+  module:
+    - image
+    - link
+id: paragraph.buttons_item.default
+targetEntityType: paragraph
+bundle: buttons_item
+mode: default
+content:
+  field_button_icon:
+    type: image_image
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_button_link:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_button_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

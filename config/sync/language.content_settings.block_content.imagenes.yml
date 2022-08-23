@@ -1,0 +1,11 @@
+uuid: b13fe9e6-9c46-41d5-8996-162d75a9b198
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.imagenes
+id: block_content.imagenes
+target_entity_type_id: block_content
+target_bundle: imagenes
+default_langcode: site_default
+language_alterable: false

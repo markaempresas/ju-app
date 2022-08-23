@@ -1,0 +1,1135 @@
+uuid: cfaa762e-8e2c-4db4-9a15-27b0136bfc46
+langcode: es
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 1
+template: false
+archive: false
+id: instrumento_de_verificacion_de_l
+title: 'Instrumento de verificación de la jornada Única'
+description: ''
+category: ''
+elements: |-
+  instrumento_diagnostico_de_jornada_unica:
+    '#type': item
+    '#title': 'Instrumento diagnóstico de Jornada única'
+  protocolo_de_implementacion:
+    '#type': webform_wizard_page
+    '#title': 'Protocolo de implementación'
+    '#prev_button_label': Anterior
+    '#next_button_label': Siguiente
+    initial_text:
+      '#type': processed_text
+      '#text': |
+        <ol>
+        	<li>La aplicación del instrumento mediada por los facilitadores del convenio suscrito entre el Ministerio de Educación Nacional y United Way.</li>
+        	<li>Debe asegurar la participación del &nbsp;Consejo directivo del EE.</li>
+        	<li>El tiempo de aplicación es aproximadamente de 2 horas y 45 minutos.&nbsp;</li>
+        	<li>Sus respuestas serán manejadas con estricta confidencialidad, y los resultados serán procesados con el fin de formular planes de mejoramiento para el establecimiento educativo (EE), en coordinación con las Entidades Territoriales Certificadas en educación (ETC) y aportar a la toma de decisiones a nivel territorial y nacional para el fortalecimiento de la Jornada Única.&nbsp;</li>
+        	<li>Para la realización de esta encuesta pedimos su colaboración teniendo a la mano los siguientes 10 documentos:</li>
+        </ol>
+
+        <ul>
+        	<li>Base de datos de estudiantes matriculados</li>
+        	<li>Actas del Comité de Alimentación Escolar (CAE)</li>
+        	<li>Registros de control de la cobertura en cada modalidad de alimentación escolar</li>
+        	<li>Base de datos de focalización PAE</li>
+        	<li>Ciclo del menú</li>
+        	<li>Proyecto Educativo Institucional (PEI)&nbsp;</li>
+        	<li>Resolución para la implementación de la JU</li>
+        	<li>Acta de concejo directivo para la implementación de la JU</li>
+        	<li>Solicitud de necesidades docentes (si aplica)</li>
+        	<li>Concepto higiénico sanitario expedido por la entidad competente del comedor (si aplica).</li>
+        </ul>
+      '#format': full_html
+    filing_instructions:
+      '#type': processed_text
+      '#text': |
+        <h2>&nbsp;</h2>
+
+        <p>&nbsp;</p>
+      '#format': full_html
+  datos_generales:
+    '#type': webform_wizard_page
+    '#title': 'Datos Generales'
+    '#prev_button_label': Anterior
+    '#next_button_label': Siguiente
+    crear_establecimiento_educativo:
+      '#type': entity_autocomplete
+      '#title': 'Establecimiento educativo'
+      '#target_type': taxonomy_term
+      '#selection_handler': 'default:taxonomy_term'
+      '#selection_settings':
+        target_bundles:
+          establecimiento_educativo: establecimiento_educativo
+        sort:
+          field: name
+          direction: ASC
+        auto_create: true
+        auto_create_bundle: establecimiento_educativo
+    departamento:
+      '#type': webform_term_select
+      '#title': Departamento
+      '#empty_option': '- Seleccionar -'
+      '#required': true
+      '#required_error': 'Debe seleccionar un Departamento'
+      '#vocabulary': departamento
+      '#breadcrumb': true
+      '#tree_delimiter': ''
+    nombre_de_la_entidad_territorial_certificada:
+      '#type': textfield
+      '#title': 'Nombre de la Entidad Territorial Certificada'
+      '#input_mask': '''casing'': ''upper'''
+      '#required': true
+      '#required_error': 'Debe marcar el nombre de la entidad territorial'
+    municipio:
+      '#type': textfield
+      '#title': Municipio
+      '#required': true
+    establecimiento_educativo:
+      '#type': textfield
+      '#title': 'Nombre del Establecimiento Educativo'
+      '#required': true
+    dane_ee:
+      '#type': number
+      '#title': 'Código Dane EE'
+      '#required': true
+      '#unique': true
+    nombre_se:
+      '#type': textfield
+      '#title': 'Nombre del la Sede'
+      '#required': true
+    codigo_dane_sede:
+      '#type': number
+      '#title': 'Código Dane de la Sede'
+      '#required': true
+      '#unique': true
+    direccion_de_la_sede:
+      '#type': textfield
+      '#title': 'Dirección de la Sede'
+      '#required': true
+    telefono_de_la_sede:
+      '#type': tel
+      '#title': 'Teléfono de la Sede'
+      '#required': true
+      '#international': true
+      '#international_initial_country': CO
+      '#international_preferred_countries':
+        - CO
+    clase_de_ee_enc_ru_:
+      '#type': radios
+      '#title': 'Clase de EE (ENC: RU)'
+      '#options':
+        Oficial: Oficial
+        'Oficial Contratada': 'Oficial Contratada'
+      '#required': true
+    zone:
+      '#type': radios
+      '#title': Zona
+      '#options':
+        Rural: Rural
+        Urbana: Urbana
+      '#required': true
+    datos_del_rector:
+      '#type': webform_section
+      '#title': 'Datos del rector'
+      nombre_del_rector:
+        '#type': textfield
+        '#title': 'Nombre del rector'
+        '#required': true
+      correo_electronico_del_rector:
+        '#type': webform_email_confirm
+        '#title': 'Correo electrónico del rector'
+        '#required': true
+      telefono_del_rector:
+        '#type': tel
+        '#title': 'Teléfono del rector'
+        '#required': true
+      jornadas_que_se_encuentran_enc_rm_:
+        '#type': checkboxes
+        '#title': 'Jornadas que se encuentran (ENC: RM)'
+        '#options':
+          Mañana: Mañana
+          Tarde: Tarde
+          Única: Única
+          Completa: Completa
+        '#required': true
+    miembros_del_consejo_directivo_del_establecimiento_educativo_:
+      '#type': fieldset
+      '#title': 'Miembros del consejo directivo del Establecimiento Educativo '
+      datos_de_los_miembros_del_consejo:
+        '#type': webform_custom_composite
+        '#title': 'Datos de los miembros del consejo'
+        '#element':
+          member_name:
+            '#type': textfield
+            '#title': 'Nombres y apellidos'
+          member_phone:
+            '#type': tel
+            '#title': Teléfono
+          member_mail:
+            '#type': webform_email_confirm
+            '#title': 'Correo electrónico'
+  datos_del_establecimiento_educativo:
+    '#type': webform_wizard_page
+    '#title': 'Datos del Establecimiento Educativo'
+    '#prev_button_label': Anterior
+    '#next_button_label': Siguiente
+    acceso_al_predio_enc_rm_:
+      '#type': checkboxes
+      '#title': 'Acceso al predio (ENC: RM)'
+      '#options':
+        Vehicular: Vehicular
+        Peatonal: Peatonal
+        Fluvial: Fluvial
+        Otro: Otro
+      '#required': true
+    _cual_es_la_distancia_en_km_desde_el_casco_urbano_al_ee_:
+      '#type': number
+      '#title': '¿Cuál es la distancia en km desde el casco urbano al EE?'
+      '#description': '(ENC: SI EL EE SE ENCUENTRA EN EL CASCO URBANO MARQUE CERO. SI EST&Aacute; FUERA DEL CASCO URBANO MARQUE UN VALOR ENTERO APROXIMADO)'
+      '#field_suffix': KM
+      '#required': true
+    grados_que_se_encuentran_en_el_ee_en_ju_enc_rm_:
+      '#type': checkboxes
+      '#title': 'Grados que se encuentran en el EE en JU (ENC: RM)'
+      '#options':
+        Prejardín: Prejardín
+        Jardín: Jardín
+        Transición: Transición
+        Primero: Primero
+        Segundo: Segundo
+        Tercero: Tercero
+        Cuarto: Cuarto
+        Quinto: Quinto
+        Sexto: Sexto
+        Séptimo: Séptimo
+        Octavo: Octavo
+        Noveno: Noveno
+        Décimo: Décimo
+        'Once ': 'Once '
+      '#options_display': three_columns
+      '#required': true
+    anos_en_los_que_a_implementado_la_jornada_unica_enc_rm_:
+      '#type': checkboxes
+      '#title': 'Años en los que a implementado la jornada única (ENC: RM)'
+      '#options':
+        '2015 - 2016': '2015 - 2016'
+        '2017 - 2018': '2017 - 2018'
+        '2019 - 2020': '2019 - 2020'
+        2021: '2021'
+        2022: '2022'
+      '#options_display': three_columns
+      '#required': true
+    _el_ee_implementa_jornada_unica_en_la_media_tecnica_:
+      '#type': checkboxes
+      '#title': '¿El EE implementa Jornada Única en la media técnica?'
+      '#options':
+        Sí: Sí
+        'No': 'No'
+      '#required': true
+    _el_ee_implementa_jornada_unica_asociado_a_la_entrega_de_una_obr:
+      '#type': checkboxes
+      '#title': '¿El EE implementa Jornada Única asociado a la entrega de una obra priorizada en  el marco del Plan nacional de infraestructura educativa (PNIE) ?'
+      '#options':
+        Sí: Sí
+        'No': 'No'
+      '#required': true
+    _el_ee_implementa_jornada_unica_en_residencias_escolares_:
+      '#type': checkboxes
+      '#title': '¿El EE implementa Jornada Única en residencias escolares?'
+      '#options':
+        Sí: Sí
+        'No': 'No'
+      '#required': true
+    el_establecimiento_educativo_presenta_resolucion_de_jornada_unic:
+      '#type': checkboxes
+      '#title': 'El Establecimiento Educativo presenta resolución de Jornada Única'
+      '#options':
+        Sí: Sí
+        'No': 'No'
+      '#required': true
+    _el_ee_cuenta_con_actas_de_socializacion_de_la_ju_con_la_comunid:
+      '#type': checkboxes
+      '#title': '¿El EE cuenta con actas de socialización de la JU con la comunidad eductiva  o actas de Consejo Directivo adoptando JU?'
+      '#options':
+        Sí: Sí
+        'No': 'No'
+    numero_de_sedes_en_las_que_se_implementa_la_jornada_unica:
+      '#type': number
+      '#title': 'Número de Sedes en las que se implementa la Jornada única'
+      '#required': true
+    dane_de_las_sedes_donde_implementa:
+      '#type': webform_custom_composite
+      '#title': 'Dane de las Sedes donde implementa'
+      '#element':
+        codigdane_sedes:
+          '#type': number
+          '#title': 'Código DANE'
+    _el_ee_tiene_proyectado_o_previsto_aumentar_la_cobertura_en_ju_:
+      '#type': checkboxes
+      '#title': '¿El EE tiene proyectado o previsto aumentar la cobertura en JU?'
+      '#options':
+        Sí: Sí
+        'No': 'No'
+      '#required': true
+    _el_ee_ha_hecho_solicitud_formal_y_en_el_procedimiento_estableci:
+      '#type': checkboxes
+      '#title': '¿El EE ha hecho solicitud formal y en el procedimiento establecido a la ETC sobre estos crecimientos?'
+      '#options':
+        Sí: Sí
+        'No': 'No'
+      '#required': true
+    _tiene_proyectado_ampliar_la_cobertura_en_jornada_unica_:
+      '#type': radios
+      '#title': '¿Tiene proyectado ampliar la cobertura en jornada única?'
+      '#options':
+        Sí: Sí
+        'No': 'No'
+      '#required': true
+    sedes:
+      '#type': number
+      '#title': Sedes
+      '#required': true
+    niveles_grados:
+      '#type': number
+      '#title': Niveles/Grados
+      '#required': true
+    _en_cuantos_meses_tiene_proyectado_realizar_estas_ampliaciones_:
+      '#type': fieldset
+      '#title': '¿En cuántos meses tiene proyectado realizar estas ampliaciones?'
+      '#description': '&nbsp;(ENC: MARQUE PARA CADA TIPO DE AMPLIACI&Oacute;N UN N&Uacute;MERO EN MESES. SI NO SE TIENEN PROYECTADAS AMPLIACIONES MARQUE N/A)'
+      meses_totales:
+        '#type': number
+        '#title': 'Meses totales'
+        '#required': true
+      sedes_3:
+        '#type': number
+        '#title': Sedes
+        '#required': true
+      grados:
+        '#type': number
+        '#title': Grados
+        '#required': true
+    observaciones:
+      '#type': textarea
+      '#title': Observaciones
+  1_componente_alimentacion_escolar:
+    '#type': webform_wizard_page
+    '#title': '1. Componente Alimentación Escolar'
+    '#prev_button_label': 'Ir a Datos del Establecimiento Educativo'
+    '#next_button_label': 'Ir a Componente de Infraestructura'
+    title_c1:
+      '#type': processed_text
+      '#display_on': both
+      '#text': '<h2>Componente Alimentación Escolar</h2>'
+      '#format': full_html
+    container_condiciones:
+      '#type': container
+      1_1_el_ee_cuenta_con_una_modalidad_para_el_suministro_del_comple:
+        '#type': webform_likert
+        '#title': '1.1 El EE cuenta con una modalidad para el suministro del complemento alimentario en el marco de la jornada única.'
+        '#required': true
+        '#questions':
+          'a. El EE suministra un complemento alimentario preparado en el sitio': 'a. El EE suministra un complemento alimentario preparado en el sitio'
+          'b. El EE suministra raciones industrializadas': 'b. El EE suministra raciones industrializadas'
+          'c. El EE suministra en trasportado caliente': 'c. El EE suministra en trasportado caliente'
+          'd. El EE suministra en un esquema flexible que ha sido avalado por la UAPA': 'd. El EE suministra en un esquema flexible que ha sido avalado por la UAPA'
+        '#answers': yes_no
+      1_2_el_ee_establece_el_tipo_de_racion_para_el_complemento_alimen:
+        '#type': webform_likert
+        '#title': "1.2 El EE establece el tipo de ración para el complemento alimentario a los niños, niñas y \_adolescentes \_de jornada única en el marco del PAE."
+        '#questions':
+          'a. El EE proporciona complemento am ': 'a. El EE proporciona complemento am '
+          'b. El EE proporciona complemento pm ': 'b. El EE proporciona complemento pm '
+          'c. El EE proporciona rcomplemento tipo almuerzo ': 'c. El EE proporciona rcomplemento tipo almuerzo '
+        '#answers': yes_no
+        '#required': true
+      1_3_el_ee_cuenta_con_comite_de_alimentacion_escolar_cae_para_el_:
+        '#type': webform_likert
+        '#title': '1.3 El EE cuenta con Comité de Alimentación Escolar (CAE) para el seguimiento a la calidad del servicio de Alimentación Escolar'
+        '#questions':
+          'a. El cómite de alimentación Escolar está conformado': 'a. El cómite de alimentación Escolar está conformado'
+          'b. El cómite de alimentación Escolar se encuentra funcionando': 'b. El cómite de alimentación Escolar se encuentra funcionando'
+        '#answers': yes_no
+        '#required': true
+      1_4_el_ee_cuenta_con_un_mecanismo_para_el_registro_y_control_de_:
+        '#type': webform_likert
+        '#title': '1.4 El EE cuenta con un mecanismo para el registro y control de la entrega del complemento alimentario a niños, niñas y adolescentes atendidos en jornada única.'
+        '#questions':
+          '1.4 El EE cuenta con un mecanismo para el registro y control de la entrega del complemento alimentario a niños, niñas y adolesce': '1.4 El EE cuenta con un mecanismo para el registro y control de la entrega del complemento alimentario a niños, niñas y adolesce'
+        '#answers': yes_no
+        '#required': true
+      1_5_el_ee_cumple_con_el_ciclo_de_menus_establecido_y_aprobado_po:
+        '#type': webform_likert
+        '#title': '1.5 El EE cumple con el ciclo de menús establecido y aprobado por la ETC '
+        '#required': true
+        '#questions':
+          'a. El EE cumple con el ciclo de menús establecido y aprobado por la ETC ': 'a. El EE cumple con el ciclo de menús establecido y aprobado por la ETC '
+          'b. El ciclo de menú cuenta con soporte de aprobación de la ETC': 'b. El ciclo de menú cuenta con soporte de aprobación de la ETC'
+          'c. El ciclo de menú contiene lista de intercambios': 'c. El ciclo de menú contiene lista de intercambios'
+          'd. El ciclo de menú está publicado en cada comedor escolar en un lugar visible a toda la comunidad educativa': 'd. El ciclo de menú está publicado en cada comedor escolar en un lugar visible a toda la comunidad educativa'
+        '#answers': yes_no
+      1_6_el_ee_cuenta_con_concepto_higienico_sanitario_del_servicio_d:
+        '#type': webform_likert
+        '#title': '1.6 El EE cuenta con concepto higiénico sanitario del servicio de comedor comunitario del PAE, emitido por la autoridad sanitaria competente'
+        '#required': true
+        '#questions':
+          'a. El EE cuenta con un espacio exclusivo para la preparación de alimentos': 'a. El EE cuenta con un espacio exclusivo para la preparación de alimentos'
+          'b. El EE cuenta con un lugar exclusivo para el consumo de alimentos': 'b. El EE cuenta con un lugar exclusivo para el consumo de alimentos'
+        '#answers': yes_no
+      1_6_enc_el_ee_cuenta_con_concepto_higienico_sanitario_del_servic:
+        '#type': webform_likert
+        '#title': '1.6 (ENC) El EE cuenta con concepto higiénico sanitario del servicio de comedor comunitario del PAE, emitido por la autoridad sanitaria competente'
+        '#states':
+          visible-slide:
+            ':input[name="1_6_el_ee_cuenta_con_concepto_higienico_sanitario_del_servicio_d[a. El EE cuenta con un espacio exclusivo para la preparación de alimentos]"]':
+              checked: true
+            ':input[name="1_6_el_ee_cuenta_con_concepto_higienico_sanitario_del_servicio_d[b. El EE cuenta con un lugar exclusivo para el consumo de alimentos]"]':
+              checked: true
+        '#questions':
+          'El EE cuenta con un concepto higiénico sanitario del servicio de comedor en un estado favorable': 'El EE cuenta con un concepto higiénico sanitario del servicio de comedor en un estado favorable'
+          'El EE cuenta con un concepto favorable con requerimientos o favorable condicionado': 'El EE cuenta con un concepto favorable con requerimientos o favorable condicionado'
+          'Se han implementado acciones para dar respuesta a los requerimientos del concepto higiénico sanitario condicionado': 'Se han implementado acciones para dar respuesta a los requerimientos del concepto higiénico sanitario condicionado'
+        '#answers': yes_no
+      1_7_el_ee_garantiza_espacios_para_el_consumo_de_alimentos_de_los:
+        '#type': webform_likert
+        '#title': '1.7 El EE garantiza espacios para el consumo de alimentos de los niños, niñas y adolescentes que hacen parte de la jornada única'
+        '#required': true
+        '#required_error': 'Debe seleccionar una opción por cada pregunta'
+        '#questions':
+          'El EE cuenta con el mobiliario suficiente para el consumo y distribución de los alimentos ': 'El EE cuenta con el mobiliario suficiente para el consumo y distribución de los alimentos '
+          'La organización y distribución del mobiliario (mesas y sillas) para consumir alimentos es óptima para los estudiantes de JU': 'La organización y distribución del mobiliario (mesas y sillas) para consumir alimentos es óptima para los estudiantes de JU'
+          'Hay espacio suficiente para el consumo de alimentos de los estudiantes en JU': 'Hay espacio suficiente para el consumo de alimentos de los estudiantes en JU'
+        '#answers': yes_no
+      1_8_el_ee_aplica_buenas_practicas_de_distribucion_interna_y_alma:
+        '#type': webform_likert
+        '#title': '1.8  El EE aplica buenas prácticas de distribución interna y almacenamiento básico de los alimentos en el marco de la jornada única '
+        '#required': true
+        '#required_error': 'Debe seleccionar una opción por cada pregunta'
+        '#questions':
+          'a. Los alimentos son protegidos de la contaminación ambiental durante su transporte al interior del EE': 'a. Los alimentos son protegidos de la contaminación ambiental durante su transporte al interior del EE'
+          'b. Para el almacenamiento de los alimentos se cuenta con prácticas de conservación que los mantiene en buen estado': 'b. Para el almacenamiento de los alimentos se cuenta con prácticas de conservación que los mantiene en buen estado'
+          'c. Las raciones se sirven con utensilios adecuados': 'c. Las raciones se sirven con utensilios adecuados'
+          'd. El servido de los alimentos es agradable para los estudiantes ': 'd. El servido de los alimentos es agradable para los estudiantes '
+          'e. El EE cuenta con personal exclusivo encargado de distribuir los alimentos': 'e. El EE cuenta con personal exclusivo encargado de distribuir los alimentos'
+        '#answers': yes_no
+      1_9el_ee_establece_horarios_para_el_momento_de_alimentacion_que_:
+        '#type': webform_likert
+        '#title': '1.9El EE establece horarios para el momento de alimentación que permiten el adecuado desarrollo de la jornada escolar'
+        '#required': true
+        '#required_error': 'Debe seleccionar una opción por cada pregunta'
+        '#questions':
+          'a. Definir tiempos de servido de los alimentos que no interfieren con la jornada escolar o las actividades pedagógicas': 'a. Definir tiempos de servido de los alimentos que no interfieren con la jornada escolar o las actividades pedagógicas'
+          'b. La distribución de los espacios para la alimentación no interfiere con el funcionamiento regular de la jornada escolar': 'b. La distribución de los espacios para la alimentación no interfiere con el funcionamiento regular de la jornada escolar'
+          'c.  El tiempo destinado al consumo de alimentos  periodo de almuerzo es suficiente para que los niños consuman de manera agradab': 'c.  El tiempo destinado al consumo de alimentos  periodo de almuerzo es suficiente para que los niños consuman de manera agradab'
+        '#answers': yes_no
+      1_10_el_ee_define_estrategias_y_organizacion_de_la_jornada_labor:
+        '#type': webform_likert
+        '#title': '1.10 El EE define estrategias y organización de la jornada laboral de los  docentes para el acompañamiento requerido durante el momento de alimentación'
+        '#required': true
+        '#required_error': 'Debe seleccionar una opción por cada pregunta'
+        '#questions':
+          '1.10 El EE define estrategias y organización de la jornada laboral de los  docentes para el acompañamiento requerido durante el ': '1.10 El EE define estrategias y organización de la jornada laboral de los  docentes para el acompañamiento requerido durante el '
+        '#answers': yes_no
+      1_11_el_ee_realiza_seguimiento_al_nivel_de_satisfaccion_frente_a:
+        '#type': webform_likert
+        '#title': '1.11 El EE realiza seguimiento al nivel de satisfacción frente al complemento alimentario que ofrece el PAE para jornada Única'
+        '#required': true
+        '#required_error': 'Debe seleccionar una opción por cada pregunta'
+        '#questions':
+          '1.11 El EE realiza seguimiento al nivel de satisfacción frente al complemento alimentario que ofrece el PAE para jornada Única': '1.11 El EE realiza seguimiento al nivel de satisfacción frente al complemento alimentario que ofrece el PAE para jornada Única'
+        '#answers': yes_no
+  2_infraestructura:
+    '#type': webform_wizard_page
+    '#title': '2. Componente Infraestructura'
+    '#prev_button_label': Anterior
+    '#next_button_label': Siguiente
+    2_1_la_sede_cuenta_con_la_documentacion_de_legalizacion_del_pred:
+      '#type': webform_likert
+      '#title': '2.1 La sede cuenta con la documentación de legalización del predio'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. El EE cuenta con el Certificado de tradición y libertad': 'a. El EE cuenta con el Certificado de tradición y libertad'
+        'b. El EE cuenta con la resolución de adjudicación del predio': 'b. El EE cuenta con la resolución de adjudicación del predio'
+        'c. El EE cuenta con la escritura del predio': 'c. El EE cuenta con la escritura del predio'
+      '#answers': yes_no
+    2_2_los_espacios_de_la_sede_estan_ubicados_fuera_de_zonas_con_al:
+      '#type': webform_likert
+      '#title': '2.2 Los espacios de la sede  están ubicados fuera de zonas con algún tipo de afectación natural o antrópica'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. El predio presenta una afectación natural derivada de: rondas, retiros, remoción en masa, entre otros': 'a. El predio presenta una afectación natural derivada de: rondas, retiros, remoción en masa, entre otros'
+        'b. El predio presenta afectación antrópica: vías de acceso, desplazamiento, orden público, alta tensión, contaminación auditiva ': 'b. El predio presenta afectación antrópica: vías de acceso, desplazamiento, orden público, alta tensión, contaminación auditiva '
+      '#answers': yes_no
+    2_3_la_sede_cuenta_con_servicios_publicos:
+      '#type': webform_likert
+      '#title': '2.3 La sede  cuenta con servicios públicos'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. El EE cuenta con servicio de acueducto o con algún sistema para garantizar el servicio de agua potable y para el consumo huma': 'a. El EE cuenta con servicio de acueducto o con algún sistema para garantizar el servicio de agua potable y para el consumo huma'
+        'b. El EE cuenta con servicio de energía eléctrica o con algún sistema para garantizar el servicio de energía': 'b. El EE cuenta con servicio de energía eléctrica o con algún sistema para garantizar el servicio de energía'
+        'c. El EE cuenta con servicio de gas natural o propano o algún sistema alternativo de combustible': 'c. El EE cuenta con servicio de gas natural o propano o algún sistema alternativo de combustible'
+        'd. El EE cuenta con algún sistema de comunicación (móvil, línea fija, o sistemas alternativos existentes en el territorio)': 'd. El EE cuenta con algún sistema de comunicación (móvil, línea fija, o sistemas alternativos existentes en el territorio)'
+        'e. El EE cuenta con servicio de alcantarillado o algún sistema para garantizar el manejo de aguas residuales': 'e. El EE cuenta con servicio de alcantarillado o algún sistema para garantizar el manejo de aguas residuales'
+        'f. El EE cuenta con servicio recolección de residuos sólidos o algún sistema para el manejo de residuos': 'f. El EE cuenta con servicio recolección de residuos sólidos o algún sistema para el manejo de residuos'
+      '#answers': yes_no
+    2_4_la_sede_ha_tenido_intervenciones_a_su_infraestructura_a_part:
+      '#type': webform_likert
+      '#title': '2.4 La Sede ha tenido  intervenciones a su infraestructura a partir de 2015 independientemente de la fuente con el fin de garantizar condiciones óptimas de seguridad y bienestar que fortalezcan la implementación de la jornada única'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'De las siguientes opciones registre el tipo de mejora, Indique la fecha de inicio y el estado según lo siguiente: 1 = Entregada;': 'De las siguientes opciones registre el tipo de mejora, Indique la fecha de inicio y el estado según lo siguiente: 1 = Entregada;'
+        'a. Ampliaciones': 'a. Ampliaciones'
+        'b. Mejoramiento': 'b. Mejoramiento'
+        'c. Reposición': 'c. Reposición'
+        'd. Nuevo': 'd. Nuevo'
+        'e. En cuáles lugares se han realizado las intervenciones (ENC: RM. Bloques, aulas, baterías sanitarías, cocinas, comedores, labo': 'e. En cuáles lugares se han realizado las intervenciones (ENC: RM. Bloques, aulas, baterías sanitarías, cocinas, comedores, labo'
+      '#answers': yes_no
+    2_5_el_ee_dispone_de_conectividad_a_internet_:
+      '#type': webform_likert
+      '#title': '2.5 El EE dispone de conectividad a internet '
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        '2.5 El EE dispone de conectividad a internet ': '2.5 El EE dispone de conectividad a internet '
+      '#answers': yes_no
+    2_6_enc_la_sede_dispone_de_dispositivos_que_se_pueden_conectar_a:
+      '#type': webform_likert
+      '#title': '2.6 (ENC)La sede dispone de dispositivos que se pueden conectar a internet '
+      '#states':
+        visible:
+          - ':input[name="2_6_enc_la_sede_dispone_de_dispositivos_que_se_pueden_conectar_a[a. El EE cuenta con computadores]"]':
+              checked: true
+          - or
+          - ':input[name="2_6_enc_la_sede_dispone_de_dispositivos_que_se_pueden_conectar_a[b. El EE cuenta con tablets]"]':
+              checked: true
+          - or
+          - ':input[name="2_6_enc_la_sede_dispone_de_dispositivos_que_se_pueden_conectar_a[c. El EE cuenta con sala de sistemas]"]':
+              checked: true
+      '#questions':
+        'a. El EE cuenta con computadores': 'a. El EE cuenta con computadores'
+        'b. El EE cuenta con tablets': 'b. El EE cuenta con tablets'
+        'c. El EE cuenta con sala de sistemas': 'c. El EE cuenta con sala de sistemas'
+      '#answers': yes_no
+    2_7_la_sede_cuenta_con_espacios_de_uso_recreativo_deportivo_y_am:
+      '#type': webform_likert
+      '#title': '2.7 La sede cuenta con espacios de uso recreativo, deportivo y ambiental para el desarrollo de la jornada única.'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. El EE dispone de espacios recreativos': 'a. El EE dispone de espacios recreativos'
+        'b. El EE dispone de espacios deportivos': 'b. El EE dispone de espacios deportivos'
+        'c. El EE dispone de zonas verdes': 'c. El EE dispone de zonas verdes'
+      '#answers': yes_no
+    2_8_enc_la_sede_cuenta_con_aulas_especializadas_que_favorecen_la:
+      '#type': webform_likert
+      '#title': '2.8 (ENC) La sede cuenta con aulas especializadas que favorecen la implementación de la jornada única'
+      '#states':
+        visible:
+          ':input[name="2_8_enc_la_sede_cuenta_con_aulas_especializadas_que_favorecen_la[a. Laboratorios ]"]':
+            checked: true
+          ':input[name="2_8_enc_la_sede_cuenta_con_aulas_especializadas_que_favorecen_la[b. Aulas especializadas]"]':
+            checked: true
+          ':input[name="2_8_enc_la_sede_cuenta_con_aulas_especializadas_que_favorecen_la[c. Biblioteca]"]':
+            checked: true
+          ':input[name="2_8_enc_la_sede_cuenta_con_aulas_especializadas_que_favorecen_la[d. Aula múltiple]"]':
+            checked: true
+          ':input[name="2_8_enc_la_sede_cuenta_con_aulas_especializadas_que_favorecen_la[e. Espacios recreativos y deportivos]"]':
+            checked: true
+          ':input[name="2_8_enc_la_sede_cuenta_con_aulas_especializadas_que_favorecen_la[f. Aula de tecnología ]"]':
+            checked: true
+      '#questions':
+        'a. Laboratorios ': 'a. Laboratorios '
+        'b. Aulas especializadas': 'b. Aulas especializadas'
+        'c. Biblioteca': 'c. Biblioteca'
+        'd. Aula múltiple': 'd. Aula múltiple'
+        'e. Espacios recreativos y deportivos': 'e. Espacios recreativos y deportivos'
+        'f. Aula de tecnología ': 'f. Aula de tecnología '
+      '#answers': yes_no
+    2_9_la_sede_cuenta_con_ruta_de_evacuacion_y_senaletica_:
+      '#type': webform_likert
+      '#title': '2.9 La sede cuenta con ruta de evacuación y señalética '
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. El EE cuenta con plano de evacuación por piso y/o área del EE': 'a. El EE cuenta con plano de evacuación por piso y/o área del EE'
+        'b. El EE cuenta con señalética por piso y/o áreas del EE': 'b. El EE cuenta con señalética por piso y/o áreas del EE'
+      '#answers': yes_no
+    2_10_enc_la_sede_cuenta_con_espacios_de_servicio_y_equipamiento_:
+      '#type': webform_likert
+      '#title': '2.10 (ENC) La sede cuenta con espacios de servicio y equipamiento comunal'
+      '#states':
+        visible:
+          - ':input[name="2_10_enc_la_sede_cuenta_con_espacios_de_servicio_y_equipamiento_[b. Aulas]"]':
+              checked: true
+          - or
+          - ':input[name="2_10_enc_la_sede_cuenta_con_espacios_de_servicio_y_equipamiento_[c. Baterías sanitarias]"]':
+              checked: true
+          - or
+          - ':input[name="2_10_enc_la_sede_cuenta_con_espacios_de_servicio_y_equipamiento_[e. Comedores]"]':
+              checked: true
+      '#questions':
+        'b. Aulas': 'b. Aulas'
+        'c. Baterías sanitarias': 'c. Baterías sanitarias'
+        'e. Comedores': 'e. Comedores'
+      '#answers': yes_no
+  3_componente_infraestructura:
+    '#type': webform_wizard_page
+    '#title': '3. Componente Pedagógico'
+    '#prev_button_label': Anterior
+    '#next_button_label': Siguiente
+    3_1_el_ee_cuenta_con_un_proyecto_educativo_institucional_pei_que:
+      '#type': webform_likert
+      '#title': '3.1 El EE cuenta con un Proyecto Educativo Institucional - PEI que tiene en cuenta los referentes de calidad del MEN'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. El PEI incorpora los lineamientos curriculares del MEN': 'a. El PEI incorpora los lineamientos curriculares del MEN'
+        'b. El PEI incorpora los Estándares Básicos de Competencias del MEN': 'b. El PEI incorpora los Estándares Básicos de Competencias del MEN'
+        'c. El PEI incorpora las orientaciones pedagógicas del MEN': 'c. El PEI incorpora las orientaciones pedagógicas del MEN'
+      '#answers': yes_no
+    3_2_el_ee_define_el_enfasis_del_pei_en_coherencia_con_su_realida:
+      '#type': webform_likert
+      '#title': '3.2 El EE define el énfasis del PEI en coherencia con su realidad sociocultural, los intereses de las niñas, niños, adolescentes y sus familias'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. El énfasis  del PEI es la educación artística y cultural': 'a. El énfasis  del PEI es la educación artística y cultural'
+        'b. El énfasis del PEI es la ciencia y Tecnología': 'b. El énfasis del PEI es la ciencia y Tecnología'
+        'c. El énfasis del PEI es la formación para la ciudadanía': 'c. El énfasis del PEI es la formación para la ciudadanía'
+        'd. El énfasis del PEI es la educación física, recreación y deportes': 'd. El énfasis del PEI es la educación física, recreación y deportes'
+        'e. El énfasis del PEI es la innovación': 'e. El énfasis del PEI es la innovación'
+        'f. El énfasis  del PEI es otro': 'f. El énfasis  del PEI es otro'
+      '#answers': yes_no
+    3_3_el_ee_define_el_enfasis_articulando_algun_eje_de_la_jornada_:
+      '#type': webform_likert
+      '#title': '3.3 El EE define el énfasis articulando algún eje de la Jornada Única'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. El EE ha ampliado la intensidad académica para la implementación de la JU con énfasis en Humanidades, lengua castellana e idi': 'a. El EE ha ampliado la intensidad académica para la implementación de la JU con énfasis en Humanidades, lengua castellana e idi'
+        'b. El EE ha ampliado la intensidad académica para la implementación de la JU con énfasis Matemáticas': 'b. El EE ha ampliado la intensidad académica para la implementación de la JU con énfasis Matemáticas'
+        'c. El EE ha ampliado la intensidad académica para la implementación de la JU con énfasis Educación artística y Cultural': 'c. El EE ha ampliado la intensidad académica para la implementación de la JU con énfasis Educación artística y Cultural'
+        'd. El EE ha ampliado la intensidad académica para la implementación de la JU con énfasis Educación física, recreación y deportes': 'd. El EE ha ampliado la intensidad académica para la implementación de la JU con énfasis Educación física, recreación y deportes'
+        'e. El EE ha ampliado la intensidad académica para la implementación de la JU con énfasis en Ciencia': 'e. El EE ha ampliado la intensidad académica para la implementación de la JU con énfasis en Ciencia'
+        'f. El EE ha ampliado la intensidad académica para la implementación de la JU con énfasis en tecnología': 'f. El EE ha ampliado la intensidad académica para la implementación de la JU con énfasis en tecnología'
+        'g. El EE ha ampliado la intensidad académica para la implementación de la JU con énfasis en competencias ciudadanas y socioemoci': 'g. El EE ha ampliado la intensidad académica para la implementación de la JU con énfasis en competencias ciudadanas y socioemoci'
+        'h. El EE ha ampliado la intensidad académica para la implementación de la JU con Otro (s) énfasis': 'h. El EE ha ampliado la intensidad académica para la implementación de la JU con Otro (s) énfasis'
+      '#answers': yes_no
+    3_4_el_ee_tiene_en_cuenta_los_intereses_de_los_ninos_ninas_adole:
+      '#type': webform_likert
+      '#title': '3.4 El EE tiene en cuenta los intereses de los niños, niñas, adolescentes y familias, para definir el eje de la jornada única'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. El EE identifica los intereses de los niños, niñas y adolescentes para la implementación de la JU': 'a. El EE identifica los intereses de los niños, niñas y adolescentes para la implementación de la JU'
+        'b. El EE  tiene mecanismos para identificar los intereses de las familias para la implementación de la JU': 'b. El EE  tiene mecanismos para identificar los intereses de las familias para la implementación de la JU'
+      '#answers': yes_no
+    3_5_el_ee_incluye_dentro_de_sus_estrategias_para_la_implementaci:
+      '#type': webform_likert
+      '#title': '3.5 El EE incluye dentro de sus estrategias para la implementación de la Jornada Única '
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. El EE incluye dentro de sus estrategias para la implementación de la Jornada Única los  talleres': 'a. El EE incluye dentro de sus estrategias para la implementación de la Jornada Única los  talleres'
+        'b. El EE incluye dentro de sus estrategias para la implementación de la Jornada Única los proyectos': 'b. El EE incluye dentro de sus estrategias para la implementación de la Jornada Única los proyectos'
+        'c. El EE incluye dentro de sus estrategias para la implementación de la Jornada Única los centros de interés.': 'c. El EE incluye dentro de sus estrategias para la implementación de la Jornada Única los centros de interés.'
+        'd. El EE incluye dentro de sus estrategias para la implementación de la Jornada Única los laboratorios.': 'd. El EE incluye dentro de sus estrategias para la implementación de la Jornada Única los laboratorios.'
+        'e. El EE ha definido otras estrategias para la implementación de la JU': 'e. El EE ha definido otras estrategias para la implementación de la JU'
+        'f. En caso de atender niñas, niños y adolescentes con discapacidad, las estrategias pedagógicas se ajustan para promover su part': 'f. En caso de atender niñas, niños y adolescentes con discapacidad, las estrategias pedagógicas se ajustan para promover su part'
+      '#answers': yes_no
+    3_6_el_ee_dispone_de_ambientes_enriquecidos_para_desarrollar_su_:
+      '#type': webform_likert
+      '#title': '3.6 El EE dispone de ambientes enriquecidos para desarrollar su propuesta curricular en JU, articulando uno o más  ejes movilizadores'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. El EE dispone de ambientes pedagógicos para la implementación de la JU integrando uno o más ejes movilizadores. ': 'a. El EE dispone de ambientes pedagógicos para la implementación de la JU integrando uno o más ejes movilizadores. '
+        'b. El EE cuenta con elementos diversos propios del contexto y de la cultura para la implementación del eje de la JU integrando u': 'b. El EE cuenta con elementos diversos propios del contexto y de la cultura para la implementación del eje de la JU integrando u'
+        'c. El EE identifica la oferta territorial de servicios que aportan a la implementación de los ejes de la JU integrando uno o más': 'c. El EE identifica la oferta territorial de servicios que aportan a la implementación de los ejes de la JU integrando uno o más'
+        'd.  El EE establece alianzas para contar con oferta de servicios y escenarios comunitarios para la implementación de los ejes de': 'd.  El EE establece alianzas para contar con oferta de servicios y escenarios comunitarios para la implementación de los ejes de'
+        "e. El EE ajustó el Manual de Convivencia para el uso de espacios y recursos para la JU\t\t": "e. El EE ajustó el Manual de Convivencia para el uso de espacios y recursos para la JU\t\t"
+      '#answers': yes_no
+    3_7_el_ee_mediante_las_estrategias_y_ejes_de_la_jornada_unica_ap:
+      '#type': webform_likert
+      '#title': '3.7 El EE mediante las estrategias y ejes de la Jornada Única aporta a las transiciones armónicas y trayectorias educativas completas'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. El EE realiza articulación entre docentes de los diferentes niveles  que promueva las transiciones armónicas y trayectorias e': 'a. El EE realiza articulación entre docentes de los diferentes niveles  que promueva las transiciones armónicas y trayectorias e'
+        'c. El EE realiza actividades con las familias para promover las transiciones armónicas y trayectorias educativas completas de lo': 'c. El EE realiza actividades con las familias para promover las transiciones armónicas y trayectorias educativas completas de lo'
+        'd.El currículo incluye estrategias formativas y evaluativas que promueven el tránsito armónico de los estudiantes en grados y ni': 'd.El currículo incluye estrategias formativas y evaluativas que promueven el tránsito armónico de los estudiantes en grados y ni'
+        'e. El EE realiza ajustes curriculares para la implementación de la JU  articulado al PEI y cuenta con evidencias al respecto': 'e. El EE realiza ajustes curriculares para la implementación de la JU  articulado al PEI y cuenta con evidencias al respecto'
+      '#answers': yes_no
+    3_8_el_ee_adelanta_procesos_de_revision_y_actualizacion_del_pei_:
+      '#type': webform_likert
+      '#title': '3.8 El EE adelanta procesos de revisión y actualización del PEI incorporando la jornada única, con participación de los actores de la comunidad educativa'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. Los docentes del establecimiento educativo han participado en procesos de revisión y actualización del PEI para la JU.': 'a. Los docentes del establecimiento educativo han participado en procesos de revisión y actualización del PEI para la JU.'
+        'b. Los directivos docentes del EE han participado en procesos de revisión y actualización del PEI para la JU.': 'b. Los directivos docentes del EE han participado en procesos de revisión y actualización del PEI para la JU.'
+        'c. Los representantes de los estudiantes del EE han participado en procesos de revisión y actualización del PEI para la JU.': 'c. Los representantes de los estudiantes del EE han participado en procesos de revisión y actualización del PEI para la JU.'
+        'd. Los representantes de los padres de familia han participado en procesos de revisión y actualización del PEI para la JU.': 'd. Los representantes de los padres de familia han participado en procesos de revisión y actualización del PEI para la JU.'
+        'e. ¿La autoevaluación institucional integra la revisión del PEI en el marco de la Jornada Única?': 'e. ¿La autoevaluación institucional integra la revisión del PEI en el marco de la Jornada Única?'
+      '#answers': yes_no
+    3_9_en_los_procesos_de_revision_y_actualizacion_del_pei_la_ie_in:
+      '#type': webform_likert
+      '#title': '3.9. En los procesos de revisión y actualización del PEI, la IE incorpora la Jornada Única. '
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. Se tiene en cuenta la participación de la comunidad educativa. ': 'a. Se tiene en cuenta la participación de la comunidad educativa. '
+        'b. El Manual de Convivencia se encuentra actualizado de acuerdo con los horarios y estrategias pedagógicas implementadas en su I': 'b. El Manual de Convivencia se encuentra actualizado de acuerdo con los horarios y estrategias pedagógicas implementadas en su I'
+        'c. Las estrategias pedagógicas de Jornada Única cuentan con planes de estudio. los planes de estudio, area y aula están ajustado': 'c. Las estrategias pedagógicas de Jornada Única cuentan con planes de estudio. los planes de estudio, area y aula están ajustado'
+        'd. Las estrategias pedagógicas de Jornada Única se encuentran armonizadas y articuladas en proyectos pedagogicos asociados al cu': 'd. Las estrategias pedagógicas de Jornada Única se encuentran armonizadas y articuladas en proyectos pedagogicos asociados al cu'
+        'e.Las estrategias pedagógicas de Jornada Única incluyen proyectos pedagógicos transversales ': 'e.Las estrategias pedagógicas de Jornada Única incluyen proyectos pedagógicos transversales '
+      '#answers': yes_no
+    3_10_las_instancias_de_gobierno_escolar_conocen_y_avalan_los_pro:
+      '#type': webform_likert
+      '#title': '3.10 Las instancias de gobierno escolar conocen y avalan los procesos de actualización al PEI en el marco de la JU'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. El Consejo Académico conoce las actualizaciones del PEI para la JU.': 'a. El Consejo Académico conoce las actualizaciones del PEI para la JU.'
+        'b. El Consejo Directivo conoce las actualizaciones del PEI para la JU.': 'b. El Consejo Directivo conoce las actualizaciones del PEI para la JU.'
+      '#answers': yes_no
+    3_11el_ee_revisa_y_ajusta_el_proceso_de_evaluacion_institucional:
+      '#type': webform_likert
+      '#title': '3.11El EE revisa y ajusta el  proceso de evaluación institucional teniendo en cuenta la implementación de la jornada única'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        '3.11El EE revisa y ajusta el  proceso de evaluación institucional teniendo en cuenta la implementación de la jornada única': '3.11El EE revisa y ajusta el  proceso de evaluación institucional teniendo en cuenta la implementación de la jornada única'
+      '#answers': yes_no
+    3_12_el_ee_revisa_y_ajusta_el_plan_de_mejoramiento_institucional:
+      '#type': webform_likert
+      '#title': '3.12 El EE revisa y ajusta el Plan de Mejoramiento Institucional - PMI en coherencia con los objetivos y énfasis de la jornada única'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        '3.12 El EE revisa y ajusta el Plan de Mejoramiento Institucional - PMI en coherencia con los objetivos y énfasis de la jornada ú': '3.12 El EE revisa y ajusta el Plan de Mejoramiento Institucional - PMI en coherencia con los objetivos y énfasis de la jornada ú'
+      '#answers': yes_no
+    3_13_el_ee_cuenta_con_un_plan_de_estudios_que_garantiza_las_inte:
+      '#type': webform_likert
+      '#title': '3.13 El EE cuenta con un plan de estudios que garantiza las intensidades académicas diarias y semanales para la jornada única según lo establecido el Decreto 2105 de 2017'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. El plan de estudios garantiza las intensidades académicas diarias y semanales para la JU en preescolar: 5 horas diarias': 'a. El plan de estudios garantiza las intensidades académicas diarias y semanales para la JU en preescolar: 5 horas diarias'
+        'b. El plan de estudios garantiza las intensidades académicas diarias y semanales para la JU en primaria: 6 horas diarias': 'b. El plan de estudios garantiza las intensidades académicas diarias y semanales para la JU en primaria: 6 horas diarias'
+        'c. El plan de estudios garantiza las intensidades académicas diarias y semanales para la JU en secundaria: 7 horas diarias': 'c. El plan de estudios garantiza las intensidades académicas diarias y semanales para la JU en secundaria: 7 horas diarias'
+        'd. El plan de estudios garantiza las intensidades académicas diarias y semanales para la JU en media académica: 7 horas diarias': 'd. El plan de estudios garantiza las intensidades académicas diarias y semanales para la JU en media académica: 7 horas diarias'
+        'e. El plan de estudios garantiza las intensidades académicas diarias y semanales para la JU en media técnica: hasta 8 horas adic': 'e. El plan de estudios garantiza las intensidades académicas diarias y semanales para la JU en media técnica: hasta 8 horas adic'
+      '#answers': yes_no
+    3_14_el_ee_cuenta_con_planes_de_estudio_area_y_aula_ajustados_se:
+      '#type': webform_likert
+      '#title': '3.14 El EE cuenta con planes de estudio, área y aula ajustados según el énfasis definido para la jornada única '
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. El EE hizo ajustes al plan de estudios según el eje o énfasis definido para la JU ': 'a. El EE hizo ajustes al plan de estudios según el eje o énfasis definido para la JU '
+        'b. El EE hizo ajustes a los planes de área articulando de acuerdo con su énfasis y otro que indique si esos ajustes están articu': 'b. El EE hizo ajustes a los planes de área articulando de acuerdo con su énfasis y otro que indique si esos ajustes están articu'
+        'c. El EE hizo ajustes los planes de aula según el eje para la JU': 'c. El EE hizo ajustes los planes de aula según el eje para la JU'
+      '#answers': yes_no
+    3_15_el_ee_revisa_y_ajusta_el_manual_de_convivencia_en_coherenci:
+      '#type': webform_likert
+      '#title': '3.15 El EE revisa y ajusta el Manual de Convivencia en coherencia con la implementación de la jornada única'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. El EE ajustó el Manual de Convivencia para identificar las horas de permanencia de los niños, niñas y adolescentes para la JU': 'a. El EE ajustó el Manual de Convivencia para identificar las horas de permanencia de los niños, niñas y adolescentes para la JU'
+        'b. El EE ajustó el Manual de Convivencia para la dedicación de las actividades pedagógicas para la JU': 'b. El EE ajustó el Manual de Convivencia para la dedicación de las actividades pedagógicas para la JU'
+        'c. El EE ajustó el Manual de Convivencia para vincular a las familias en la JU': 'c. El EE ajustó el Manual de Convivencia para vincular a las familias en la JU'
+        'd.El manual de convivencia se ajustó teniendo en cuenta la ampliación de la jornada escolar.': 'd. El manual de convivencia se ajustó teniendo en cuenta la ampliación de la jornada escolar.'
+        'e. El manual de convivencia cuenta con ajustes que promueven la salud, el bienestar y la sana convivencia de toda la comunidad.': 'e. El manual de convivencia cuenta con ajustes que promueven la salud, el bienestar y la sana convivencia de toda la comunidad.'
+      '#answers': yes_no
+    3_16_la_propuesta_curricular_integra_de_manera_explicita_:
+      '#type': webform_likert
+      '#title': '3.16 La propuesta curricular integra de manera explícita '
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. Competencias básicas': 'a. Competencias básicas'
+        'b. Competencias Socioemocionales ': 'b. Competencias Socioemocionales '
+        'c. Competencias ciudadanas': 'c. Competencias ciudadanas'
+        'd. Competencias del siglo XXI ': 'd. Competencias del siglo XXI '
+      '#answers': yes_no
+    3_17_el_ee_revisa_y_ajusta_el_siee_en_coherencia_con_la_implemen:
+      '#type': webform_likert
+      '#title': '3.17  El EE revisa y ajusta el SIEE en coherencia con la implementación de la jornada única'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. El SIEE se ha actualizado a partir de la implementación de la Jornada Única ': 'a. El SIEE se ha actualizado a partir de la implementación de la Jornada Única '
+        'b.Se han adoptado estrategias de evaluación formativa a partir de la implementación de Jornada Única': 'b.Se han adoptado estrategias de evaluación formativa a partir de la implementación de Jornada Única'
+      '#answers': yes_no
+  4_componente_recurso_humano:
+    '#type': webform_wizard_page
+    '#title': '4. Componente Recurso Humano'
+    4_1_el_ee_tiene_el_talento_humano_solicitado_a_la_etc_para_la_im:
+      '#type': webform_likert
+      '#title': '4.1 .  El EE tiene el talento humano solicitado a la ETC  para la implementación de la JU'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. El EE atiende las intensidades académicas (horas adicionales) de JU con docentes adicionales': 'a. El EE atiende las intensidades académicas (horas adicionales) de JU con docentes adicionales'
+        'b. El EE atiende las horas adicionales de JU reconociendo horas extras a docentes del establecimiento': 'b. El EE atiende las horas adicionales de JU reconociendo horas extras a docentes del establecimiento'
+        'c. El EE atiende las horas adicionales de JU a través de horas extras de docentes de otros establecimientos de la ETC': 'c. El EE atiende las horas adicionales de JU a través de horas extras de docentes de otros establecimientos de la ETC'
+      '#answers': yes_no
+    4_2_enc_el_ee_cuenta_con_la_cantidad_de_docentes_requerido_y_apr:
+      '#type': webform_likert
+      '#title': '4.2 (ENC) El EE cuenta con la cantidad de docentes requerido y aprobado para la implementación de la jornada única según su perfil'
+      '#states':
+        visible:
+          - ':input[name="4_2_enc_el_ee_cuenta_con_la_cantidad_de_docentes_requerido_y_apr[a.  Docentes asignados para la JU en preescolar ]"]':
+              checked: true
+          - or
+          - ':input[name="4_2_enc_el_ee_cuenta_con_la_cantidad_de_docentes_requerido_y_apr[b. Docentes asignados para la  JU en primaria ]"]':
+              checked: true
+          - or
+          - ':input[name="4_2_enc_el_ee_cuenta_con_la_cantidad_de_docentes_requerido_y_apr[c. Docentes asignados para la JU en secundaria]"]':
+              checked: true
+          - or
+          - ':input[name="4_2_enc_el_ee_cuenta_con_la_cantidad_de_docentes_requerido_y_apr[d. Docentes asignados para la JU en media]"]':
+              checked: true
+          - or
+          - ':input[name="4_2_enc_el_ee_cuenta_con_la_cantidad_de_docentes_requerido_y_apr[e. Docentes asignados para la JU para el énfasis en Humanidades, lengua castellana e idiomas extranjeros]"]':
+              checked: true
+          - or
+          - ':input[name="4_2_enc_el_ee_cuenta_con_la_cantidad_de_docentes_requerido_y_apr[f. Docentes asignados para la JU para el énfasis de Matemáticas]"]':
+              checked: true
+          - or
+          - ':input[name="4_2_enc_el_ee_cuenta_con_la_cantidad_de_docentes_requerido_y_apr[g. Docentes asignados para la JU para el énfasis de Educación artística y Cultural]"]':
+              checked: true
+          - or
+          - ':input[name="4_2_enc_el_ee_cuenta_con_la_cantidad_de_docentes_requerido_y_apr[h.Docentes asignados para la JU para el énfasis de Educación física, recreación y deportes]"]':
+              checked: true
+          - or
+          - ':input[name="4_2_enc_el_ee_cuenta_con_la_cantidad_de_docentes_requerido_y_apr[i. Docentes asignados para la JU para el énfasis de Ciencia]"]':
+              checked: true
+          - or
+          - ':input[name="4_2_enc_el_ee_cuenta_con_la_cantidad_de_docentes_requerido_y_apr[j.Docentes asignados para la JU para el énfasis de tecnología]"]':
+              checked: true
+          - or
+          - ':input[name="4_2_enc_el_ee_cuenta_con_la_cantidad_de_docentes_requerido_y_apr[k. Docentes asignados para la JU para el énfasis de competencias ciudadanas y socioemocionales]"]':
+              checked: true
+          - or
+          - ':input[name="4_2_enc_el_ee_cuenta_con_la_cantidad_de_docentes_requerido_y_apr[l. Docentes asignados para la JU para otro (s) énfasis ]"]':
+              checked: true
+      '#questions':
+        'a.  Docentes asignados para la JU en preescolar ': 'a.  Docentes asignados para la JU en preescolar '
+        'b. Docentes asignados para la  JU en primaria ': 'b. Docentes asignados para la  JU en primaria '
+        'c. Docentes asignados para la JU en secundaria': 'c. Docentes asignados para la JU en secundaria'
+        'd. Docentes asignados para la JU en media': 'd. Docentes asignados para la JU en media'
+        'e. Docentes asignados para la JU para el énfasis en Humanidades, lengua castellana e idiomas extranjeros': 'e. Docentes asignados para la JU para el énfasis en Humanidades, lengua castellana e idiomas extranjeros'
+        'f. Docentes asignados para la JU para el énfasis de Matemáticas': 'f. Docentes asignados para la JU para el énfasis de Matemáticas'
+        'g. Docentes asignados para la JU para el énfasis de Educación artística y Cultural': 'g. Docentes asignados para la JU para el énfasis de Educación artística y Cultural'
+        'h.Docentes asignados para la JU para el énfasis de Educación física, recreación y deportes': 'h.Docentes asignados para la JU para el énfasis de Educación física, recreación y deportes'
+        'i. Docentes asignados para la JU para el énfasis de Ciencia': 'i. Docentes asignados para la JU para el énfasis de Ciencia'
+        'j.Docentes asignados para la JU para el énfasis de tecnología': 'j.Docentes asignados para la JU para el énfasis de tecnología'
+        'k. Docentes asignados para la JU para el énfasis de competencias ciudadanas y socioemocionales': 'k. Docentes asignados para la JU para el énfasis de competencias ciudadanas y socioemocionales'
+        'l. Docentes asignados para la JU para otro (s) énfasis ': 'l. Docentes asignados para la JU para otro (s) énfasis '
+      '#answers': yes_no
+    4_4_la_asignacion_academica_para_los_docentes_corresponde_con_lo:
+      '#type': webform_likert
+      '#title': '4.4  La asignación académica para los docentes corresponde con lo establecido con la normatividad vigente'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. La asignación académica semanal para los docentes en Preescolar es de 20 horas': 'a. La asignación académica semanal para los docentes en Preescolar es de 20 horas'
+        'b. La asignación académica semanal para los docentes en Primaria es de 25 horas': 'b. La asignación académica semanal para los docentes en Primaria es de 25 horas'
+        'c. La asignación académica semanal para los docentes en Secundaria y Media es de 22 horas': 'c. La asignación académica semanal para los docentes en Secundaria y Media es de 22 horas'
+      '#answers': yes_no
+    4_5_el_ee_tiene_definida_la_organizacion_del_talento_humano_para:
+      '#type': webform_likert
+      '#title': '4.5 El EE tiene definida la organización del talento humano para apoyar actividades pedagógicas complementarias relacionadas con la prestación del servicio educativo (alimentación, descanso, transporte escolar, etc)'
+      '#questions':
+        '4.5 El EE tiene definida la organización del talento humano para apoyar actividades pedagógicas complementarias relacionadas con': '4.5 El EE tiene definida la organización del talento humano para apoyar actividades pedagógicas complementarias relacionadas con'
+      '#answers': yes_no
+  5_componente_gestion:
+    '#type': webform_wizard_page
+    '#title': '5. Componente Gestión'
+    5_1_a_traves_de_la_jornada_unica_se_ha_fomentado_la_consolidacio:
+      '#type': webform_likert
+      '#title': '5.1 ¿A través de la Jornada única se ha fomentado la consolidación de redes de padres de familia, comunidad, docentes, directivos docentes y niños, niñas y adolescentes? Pendiente el ajuste de acuerdo con la observación de Nata'
+      '#questions':
+        '5.1 ¿A través de la Jornada única se ha fomentado la consolidación de redes de padres de familia, comunidad, docentes, directivo': '5.1 ¿A través de la Jornada única se ha fomentado la consolidación de redes de padres de familia, comunidad, docentes, directivo'
+      '#answers': yes_no
+    5_2_la_ie_ha_realizado_proyectos_multidisciplinares_con_otros_do:
+      '#type': webform_likert
+      '#title': '5.2  ¿La IE ha realizado proyectos multidisciplinares con otros docentes y alianzas con otras Instituciones Educativas?'
+      '#questions':
+        '5.2  ¿La IE ha realizado proyectos multidisciplinares con otros docentes y alianzas con otras Instituciones Educativas?': '5.2  ¿La IE ha realizado proyectos multidisciplinares con otros docentes y alianzas con otras Instituciones Educativas?'
+      '#answers': yes_no
+    5_3_la_ie_realiza_gestion_para_establecer_alianzas_convenios_o_p:
+      '#type': webform_likert
+      '#title': '5.3.  La IE realiza gestión para establecer alianzas, convenios o participar en fondos que permiten fortalecer la implementación de la jornada única'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. Públicas': 'a. Públicas'
+        'b. Privadas': 'b. Privadas'
+        'c. Mixtas': 'c. Mixtas'
+        'd. Cooperación Internacional': 'd. Cooperación Internacional'
+        'e. Organizaciones No Gubernamentales ONG': 'e. Organizaciones No Gubernamentales ONG'
+        'f. Organizaciones de base comunitaria': 'f. Organizaciones de base comunitaria'
+        'g. Otra': 'g. Otra'
+      '#answers': yes_no
+    5_4_si_ha_realizado_alianzas_y_o_convenioscon_otras_entidades_pa:
+      '#type': webform_likert
+      '#title': '5.4. Si ha realizado alianzas y/o convenioscon otras entidades para la implementación de la JU, ¿cuál ha sido el foco de las gestiones?'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. Expresiones artísticas y culturales': 'a. Expresiones artísticas y culturales'
+        'b. Deporte': 'b. Deporte'
+        'c. Ciencia y tecnología': 'c. Ciencia y tecnología'
+        'd. Robótica': 'd. Robótica'
+        'e. Clubes literarios': 'e. Clubes literarios'
+        'f. Mejoramiento a la infraestructura (nueva o dotación)': 'f. Mejoramiento a la infraestructura (nueva o dotación)'
+        'g. Contratación de docentes, facilitadores, formadores, o figuras similares': 'g. Contratación de docentes, facilitadores, formadores, o figuras similares'
+        'h. Otra': 'h. Otra'
+      '#answers': yes_no
+    5_5_la_ie_cuenta_con_un_archivo_organizado_y_disponible_para_con:
+      '#type': webform_likert
+      '#title': '5.5 La IE cuenta con un archivo organizado y disponible para consulta, en el cual se evidencia la implementación de la jornada única'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. La IE cuenta con un archivo organizado y disponible para consulta con información propia (Pedagógicas, RRHH, PAE, Infraestruc': 'a. La IE cuenta con un archivo organizado y disponible para consulta con información propia (Pedagógicas, RRHH, PAE, Infraestruc'
+        'b. La IE cuenta con un archivo organizado y disponible para consulta con soportes de solicitud de horas extras o docentes a secr': 'b. La IE cuenta con un archivo organizado y disponible para consulta con soportes de solicitud de horas extras o docentes a secr'
+      '#answers': yes_no
+    5_6_la_ie_realiza_seguimiento_a_la_implementacion_de_la_jornada_:
+      '#type': webform_likert
+      '#title': '5.6. La IE realiza seguimiento a la implementación de la jornada única'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. Se lleva un registro físico y digital de los procesos de planeación, implementación y evaluación de la JU': 'a. Se lleva un registro físico y digital de los procesos de planeación, implementación y evaluación de la JU'
+        'b. Se lleva un registro físico o digital que permita identificar los factores de éxito y de buenas prácticas que sirvan como ref': 'b. Se lleva un registro físico o digital que permita identificar los factores de éxito y de buenas prácticas que sirvan como ref'
+        'c. La IE cuenta con actas de consejo directivo y académico firmadas donde se trató el tema de seguimiento de la JU': 'c. La IE cuenta con actas de consejo directivo y académico firmadas donde se trató el tema de seguimiento de la JU'
+        'd. La IE cuenta con actas y listas de asistencia de acompañamientos o asistencias técnicas realizadas por parte del MEN o la SED': 'd. La IE cuenta con actas y listas de asistencia de acompañamientos o asistencias técnicas realizadas por parte del MEN o la SED'
+      '#answers': yes_no
+    5_7_la_ie_integra_en_la_implementacion_de_la_jornada_unica_los_p:
+      '#type': webform_likert
+      '#title': '5.7 La IE integra en la implementación de la Jornada Única los  procesos de gestión escolar.'
+      '#required': true
+      '#required_error': 'Debe seleccionar una opción por cada pregunta'
+      '#questions':
+        'a. La IE desarrolla acciones de fortalecimiento a la Jornada Única en El marco de su PMI': 'a. La IE desarrolla acciones de fortalecimiento a la Jornada Única en El marco de su PMI'
+        'b. La IE vincula a las instancias del gobierno escolar en el seguimiento y ajuste para la implementación de la Jornada única. ': 'b. La IE vincula a las instancias del gobierno escolar en el seguimiento y ajuste para la implementación de la Jornada única. '
+        'c. La IE ha desarrollado acciones de fortalecimiento a la alianza familia escuela en el marco de la Jornada Única.': 'c. La IE ha desarrollado acciones de fortalecimiento a la alianza familia escuela en el marco de la Jornada Única.'
+        'd.La IE cuenta con estrategias de salud, bienestar y convivencia articuladas a la JU.': 'd.La IE cuenta con estrategias de salud, bienestar y convivencia articuladas a la JU.'
+        'e. La IE desarrolla acciones intenciadas para promover la inclusión y la equidad en el marco de la JU.': 'e. La IE desarrolla acciones intenciadas para promover la inclusión y la equidad en el marco de la JU.'
+        'f.La IE desarrolla acciones intencionadas para promover la acogida, bienestar y permanencia': 'f.La IE desarrolla acciones intencionadas para promover la acogida, bienestar y permanencia'
+        'g. La IE ha articulado la implementación de la jornada única a su procesos de gestión escolar.': 'g. La IE ha articulado la implementación de la jornada única a su procesos de gestión escolar.'
+      '#answers': yes_no
+  actions:
+    '#type': webform_actions
+    '#title': 'Submit button(s)'
+    '#submit__label': Enviar
+css: ''
+javascript: ''
+settings:
+  ajax: true
+  ajax_scroll_top: form
+  ajax_progress_type: throbber
+  ajax_effect: slide
+  ajax_speed: null
+  page: true
+  page_submit_path: /instrumentodecaracterizacion
+  page_confirm_path: ''
+  page_theme_name: ''
+  form_title: webform_source_entity
+  form_submit_once: false
+  form_open_message: 'Por favor diligencie el instrumento diagn&oacute;stico de Jornada &Uacute;nica'
+  form_close_message: 'Este formulario est&aacute; cerrado'
+  form_exception_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_disable_remote_addr: false
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_unsaved: true
+  form_disable_back: false
+  form_submit_back: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_reset: false
+  form_access_denied: login
+  form_access_denied_title: ''
+  form_access_denied_message: 'Es necesario tener un usuario y contrase&ntilde;a para poder diligenciar este instrumento.'
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  form_attributes: {  }
+  form_method: ''
+  form_action: ''
+  share: true
+  share_node: true
+  share_theme_name: jutheme
+  share_title: true
+  share_page_body_attributes:
+    class:
+      - form-ju
+  submission_label: Enviar
+  submission_exception_message: 'No se puede procesar este env&iacute;o. Por favor contacte al administrador del sitio. Ingrese [none] para ocultar este mensaje.'
+  submission_locked_message: 'Este env&iacute;o ha sido bloqueado. Ingrese [none] para ocultar este mensaje.'
+  submission_log: false
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: login
+  submission_access_denied_title: ''
+  submission_access_denied_message: 'Inicie sesi&oacute;n para diligenciar el instrumento.'
+  submission_access_denied_attributes: {  }
+  previous_submission_message: 'Ya hay un env&iacute;o registrado con su usario. Para poder editarlo debe solicitarle acceso al profesional de acompa&ntilde;amiento.'
+  previous_submissions_message: 'Ya hay un env&iacute;o registrado con su usario. Para poder editarlo debe solicitarle acceso al profesional de acompa&ntilde;amiento.'
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: true
+  wizard_progress_link: true
+  wizard_progress_states: false
+  wizard_start_label: 'Sección inicial'
+  wizard_preview_link: true
+  wizard_confirmation: false
+  wizard_confirmation_label: 'Sección FInal '
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
+  wizard_track: name
+  wizard_prev_button_label: Anterior
+  wizard_next_button_label: Siguiente
+  wizard_toggle: true
+  wizard_toggle_show_label: ''
+  wizard_toggle_hide_label: ''
+  preview: 1
+  preview_label: Previsualizar
+  preview_title: '[webform:title]'
+  preview_message: 'Este es un previsualizador de los datos que ha diligenciado, aun no est&aacute;n enviados los campos, para enviar el formuario debe hacer clic en el bot&oacute;n enviar.'
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: authenticated
+  draft_multiple: false
+  draft_auto_save: true
+  draft_saved_message: ''
+  draft_loaded_message: 'Se encontr&oacute; un formulario parcialmente completado. Por favor complete las porciones restantes. Ingrese [none] para ocultar este mensaje.'
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: modal
+  confirmation_url: ''
+  confirmation_title: 'Gracias por diligenciar el Instrumento de Caracterización Jornada Única'
+  confirmation_message: 'Ha diligenciado correctamente la informaci&oacute;n. Gracias por participar.'
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  results_customize: false
+  token_view: false
+  token_update: false
+  token_delete: false
+  serial_disabled: false
+access:
+  create:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles:
+      - administrator
+      - gestor
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles:
+      - administrator
+      - gestor
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles:
+      - administrator
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles:
+      - administrator
+      - gestor
+    users: {  }
+    permissions: {  }
+  administer:
+    roles:
+      - administrator
+    users: {  }
+    permissions: {  }
+  test:
+    roles:
+      - administrator
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles:
+      - administrator
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }

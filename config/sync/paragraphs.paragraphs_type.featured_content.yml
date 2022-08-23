@@ -1,0 +1,10 @@
+uuid: 5bc31a08-b358-4a65-abb1-8c8d74b278bf
+langcode: es
+status: true
+dependencies: {  }
+id: featured_content
+label: 'Contenido destacado home'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

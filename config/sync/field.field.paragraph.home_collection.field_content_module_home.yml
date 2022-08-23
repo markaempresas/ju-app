@@ -1,0 +1,53 @@
+uuid: b759c524-c320-45d5-8713-9ba3f36fd359
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content_module_home
+    - paragraphs.paragraphs_type.buttons_home
+    - paragraphs.paragraphs_type.featured_content
+    - paragraphs.paragraphs_type.home_collection
+    - paragraphs.paragraphs_type.main_slider
+  module:
+    - entity_reference_revisions
+id: paragraph.home_collection.field_content_module_home
+field_name: field_content_module_home
+entity_type: paragraph
+bundle: home_collection
+label: 'Módulos de contenido'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      main_slider: main_slider
+      buttons_home: buttons_home
+      featured_content: featured_content
+    negate: 0
+    target_bundles_drag_drop:
+      buttons_home:
+        weight: -14
+        enabled: true
+      buttons_item:
+        weight: -12
+        enabled: false
+      featured_content:
+        weight: -13
+        enabled: true
+      featured_item:
+        weight: -11
+        enabled: false
+      home_collection:
+        weight: -10
+        enabled: false
+      main_slider:
+        weight: -15
+        enabled: true
+      slider_item:
+        weight: -9
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,25 @@
+uuid: e8847fbf-031a-4b7f-acaf-9f13af31db90
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.imagenes
+    - field.field.block_content.imagenes.field_imagen
+  module:
+    - image
+id: block_content.imagenes.default
+targetEntityType: block_content
+bundle: imagenes
+mode: default
+content:
+  field_imagen:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,25 @@
+uuid: ae23bf6c-b4c0-44a8-a307-c0d9982686c6
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:057c3aee-92e4-4ee4-82b7-bbb9ec3e0d95'
+  module:
+    - block_content
+  theme:
+    - jutheme
+id: prefooter
+theme: jutheme
+region: footer
+weight: -7
+provider: null
+plugin: 'block_content:057c3aee-92e4-4ee4-82b7-bbb9ec3e0d95'
+settings:
+  id: 'block_content:057c3aee-92e4-4ee4-82b7-bbb9ec3e0d95'
+  label: Prefooter
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

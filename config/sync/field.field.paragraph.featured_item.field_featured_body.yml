@@ -1,0 +1,21 @@
+uuid: bb9fa596-bc93-4c03-bbd3-8e641bd2b77e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_featured_body
+    - paragraphs.paragraphs_type.featured_item
+  module:
+    - text
+id: paragraph.featured_item.field_featured_body
+field_name: field_featured_body
+entity_type: paragraph
+bundle: featured_item
+label: 'Cuerpo del destacado'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

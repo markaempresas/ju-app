@@ -1,0 +1,39 @@
+uuid: 7d2b0363-9079-4eee-8881-fa4f7b57f783
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.imagenes
+    - field.field.block_content.imagenes.field_imagen
+    - image.style.thumbnail
+  module:
+    - image
+id: block_content.imagenes.default
+targetEntityType: block_content
+bundle: imagenes
+mode: default
+content:
+  field_imagen:
+    type: image_image
+    weight: 26
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

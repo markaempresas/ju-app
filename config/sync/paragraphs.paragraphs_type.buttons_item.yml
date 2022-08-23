@@ -1,0 +1,10 @@
+uuid: 06709ad9-1aed-4fec-90aa-369fbdca9d57
+langcode: es
+status: true
+dependencies: {  }
+id: buttons_item
+label: 'Ítem botón'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

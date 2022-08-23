@@ -1,0 +1,11 @@
+uuid: c13c70ea-90ad-42e7-8a77-6c7cf43408f7
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.establecimiento_educativo
+id: taxonomy_term.establecimiento_educativo
+target_entity_type_id: taxonomy_term
+target_bundle: establecimiento_educativo
+default_langcode: site_default
+language_alterable: false

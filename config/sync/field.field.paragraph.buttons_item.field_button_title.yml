@@ -1,0 +1,19 @@
+uuid: 0ba54351-7d1a-40f4-a48f-ff5abc80d2a8
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_button_title
+    - paragraphs.paragraphs_type.buttons_item
+id: paragraph.buttons_item.field_button_title
+field_name: field_button_title
+entity_type: paragraph
+bundle: buttons_item
+label: Título
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

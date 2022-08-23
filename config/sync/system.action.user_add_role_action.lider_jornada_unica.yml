@@ -1,0 +1,14 @@
+uuid: d62c11f8-4c96-4830-b3c1-2592899de1a1
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.lider_jornada_unica
+  module:
+    - user
+id: user_add_role_action.lider_jornada_unica
+label: 'Añade el rol Líder Jornada Única al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: lider_jornada_unica

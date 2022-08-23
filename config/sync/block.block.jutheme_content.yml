@@ -1,0 +1,22 @@
+uuid: feae698f-2cb6-4ada-a1be-46dccbdf05dd
+langcode: es
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - jutheme
+_core:
+  default_config_hash: LdjjIRy8TERXVlZT9SY6Uv1_LnNDkWCGl-a-8cBX_FQ
+id: jutheme_content
+theme: jutheme
+region: content
+weight: -1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

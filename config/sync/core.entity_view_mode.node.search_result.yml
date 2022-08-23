@@ -1,0 +1,12 @@
+uuid: 01e60392-c818-4df3-9e0d-e8c7f8937b07
+langcode: es
+status: false
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: 6GCOQ-jP2RbdbHA5YWQ6bT8CfGbqrBYKOSC_XY4E3ZM
+id: node.search_result
+label: 'Destacar la entrada de los resultados de búsqueda'
+targetEntityType: node
+cache: true

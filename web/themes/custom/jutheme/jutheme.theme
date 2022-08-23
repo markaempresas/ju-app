@@ -1,0 +1,10 @@
+<?php
+/**
+ * @file
+ *  Functions to support theming.
+ */
+require_once dirname(__FILE__) . '/includes/base.inc';
+require_once dirname(__FILE__) . '/includes/nodes.inc';
+require_once dirname(__FILE__) . '/includes/blocks.inc';
+require_once dirname(__FILE__) . '/includes/taxonomies.inc';
+require_once dirname(__FILE__) . '/includes/paragraphs.inc';

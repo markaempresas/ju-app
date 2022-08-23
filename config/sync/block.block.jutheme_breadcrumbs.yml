@@ -1,0 +1,22 @@
+uuid: 24d19139-c926-4557-b94a-b89fd61d6238
+langcode: es
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - jutheme
+_core:
+  default_config_hash: jiR7u5l37rDL4yTYkjoKRTx5eHhO6xuxuMwUu35big0
+id: jutheme_breadcrumbs
+theme: jutheme
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

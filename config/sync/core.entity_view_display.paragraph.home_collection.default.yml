@@ -1,0 +1,24 @@
+uuid: f614c562-fa98-453d-bea9-71838ab7c84f
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.home_collection.field_content_module_home
+    - paragraphs.paragraphs_type.home_collection
+  module:
+    - entity_reference_revisions
+id: paragraph.home_collection.default
+targetEntityType: paragraph
+bundle: home_collection
+mode: default
+content:
+  field_content_module_home:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

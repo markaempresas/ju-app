@@ -1,0 +1,22 @@
+uuid: c04e29b2-d7a9-4b1b-bb1b-6f91ced2ecbf
+langcode: es
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - jutheme
+_core:
+  default_config_hash: TLDgwHuhyzDqrQh9lH3yHX_dARm9knlScm2hUJlT9QY
+id: jutheme_messages
+theme: jutheme
+region: content
+weight: -7
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  label_display: '0'
+  provider: system
+visibility: {  }

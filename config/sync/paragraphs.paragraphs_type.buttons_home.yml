@@ -1,0 +1,10 @@
+uuid: 8fd8ce3c-d934-439d-bba8-3d6b4cd46a3a
+langcode: es
+status: true
+dependencies: {  }
+id: buttons_home
+label: 'Botonera home'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,20 @@
+uuid: f556da23-5338-4eeb-87b2-2d2cc7e190b5
+langcode: es
+status: true
+dependencies:
+  theme:
+    - jutheme
+_core:
+  default_config_hash: PQZLs8ZLFgCXwljZzrfzGKxVrtez9IfrrcGFIS4oA0k
+id: jutheme_local_actions
+theme: jutheme
+region: content
+weight: -3
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

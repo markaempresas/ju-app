@@ -1,0 +1,27 @@
+uuid: 3b16a40d-5edb-4fe2-ad32-e15ea21e783a
+langcode: es
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - jutheme
+_core:
+  default_config_hash: 2YtpF0RL0lEGdGoSLXg2Fr879FMhg7CTSxT0JVNjzNo
+id: jutheme_account_menu
+theme: jutheme
+region: nav_additional
+weight: -7
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

@@ -1,0 +1,8 @@
+uuid: 61d2d774-bfdc-4d62-9e4f-190183a2c524
+langcode: es
+status: true
+dependencies: {  }
+id: imagenes
+label: Imágenes
+revision: 0
+description: ''

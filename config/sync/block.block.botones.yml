@@ -1,0 +1,30 @@
+uuid: f7259413-13cc-4dc8-9e1f-d5d7e8bded8f
+langcode: es
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:3730f423-1954-470c-94da-4284d7495231'
+  module:
+    - block_content
+    - system
+  theme:
+    - jutheme
+id: botones
+theme: jutheme
+region: content
+weight: -2
+provider: null
+plugin: 'block_content:3730f423-1954-470c-94da-4284d7495231'
+settings:
+  id: 'block_content:3730f423-1954-470c-94da-4284d7495231'
+  label: botones
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

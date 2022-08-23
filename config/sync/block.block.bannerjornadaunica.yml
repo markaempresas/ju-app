@@ -1,0 +1,25 @@
+uuid: 4f3a4ccc-0673-44c2-a4fe-5c1d8b11a2e3
+langcode: es
+status: false
+dependencies:
+  content:
+    - 'block_content:imagenes:cac70584-8028-4594-b800-e46e1dc37142'
+  module:
+    - block_content
+  theme:
+    - jutheme
+id: bannerjornadaunica
+theme: jutheme
+region: banner_site
+weight: 0
+provider: null
+plugin: 'block_content:cac70584-8028-4594-b800-e46e1dc37142'
+settings:
+  id: 'block_content:cac70584-8028-4594-b800-e46e1dc37142'
+  label: 'Banner Jornada Única'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

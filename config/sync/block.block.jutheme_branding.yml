@@ -1,0 +1,25 @@
+uuid: 09ee2c8e-b76d-47e9-91d0-f086ea9c7daa
+langcode: es
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - jutheme
+_core:
+  default_config_hash: m-n4JtsX4zkOHodlOL8DJOJzV_5bI7zkILTHO1o8ehw
+id: jutheme_branding
+theme: jutheme
+region: nav_branding
+weight: -6
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

@@ -1,0 +1,34 @@
+uuid: af0cec4a-6b77-4b6a-8f58-afe68c7210fc
+langcode: es
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.compact
+    - field.field.user.user.field_departamento
+    - field.field.user.user.field_esteblecimiento_educativo
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - image
+    - user
+_core:
+  default_config_hash: kD2TjItfNDKFw2CFJQfuv4Ys6qg3uYa4hCJYN2jreec
+id: user.user.compact
+targetEntityType: user
+bundle: user
+mode: compact
+content:
+  user_picture:
+    type: image
+    label: hidden
+    settings:
+      image_link: content
+      image_style: thumbnail
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_departamento: true
+  field_esteblecimiento_educativo: true
+  langcode: true
+  member_for: true

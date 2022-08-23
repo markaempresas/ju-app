@@ -1,0 +1,14 @@
+uuid: b2fe4b7d-5792-4ec2-b8d8-bed2506b6d21
+langcode: es
+status: true
+dependencies:
+  config:
+    - user.role.gestor
+  module:
+    - user
+id: user_add_role_action.gestor
+label: 'Añade el rol Gestor al(los) usuario(s) seleccionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: gestor

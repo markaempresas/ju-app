@@ -1,0 +1,13 @@
+name: Advanced Poll
+description: 'Extends Drupal Poll, providing the following additional poll types: Instant Run-off, Borda Count, Ranked Choice and Approval'
+type: module
+core_version_requirement: ^8 || ^9
+core: 8.x
+package: Other
+dependencies:
+  - drupal:poll
+
+# Information added by Drupal.org packaging script on 2021-08-03
+version: '8.x-1.2'
+project: 'advpoll'
+datestamp: 1628011028

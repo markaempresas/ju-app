@@ -1,0 +1,23 @@
+# Declares module information, including the module's name, description,
+# and dependencies.
+name: Chart Suite
+type: module
+description: 'A suite of file field formatters to chart data files holding tables, trees, and graphs.'
+package: San Diego Supercomputer Center (SDSC)
+dependencies:
+  - drupal:field
+  - drupal:file
+  - drupal:system (>=8.7)
+libraries:
+  - chart_suite/chart_suite
+core_version_requirement: ^8 || ^9
+
+# Note: For modules hosted on drupal.org, do not add the 'version' property.
+# It will be added automatically by the packager on drupal.org
+
+# Information added by Drupal.org packaging script on 2018-10-04
+# project: 'chart_suite'
+# Information added by Drupal.org packaging script on 2021-03-30
+version: '8.x-1.1'
+project: 'chart_suite'
+datestamp: 1617126157

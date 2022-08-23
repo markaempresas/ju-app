@@ -1,0 +1,8 @@
+uuid: 7a08d994-b575-403c-83fa-75e9c3a67050
+langcode: es
+status: true
+dependencies: {  }
+name: 'Establecimiento Educativo'
+vid: establecimiento_educativo
+description: ''
+weight: 0

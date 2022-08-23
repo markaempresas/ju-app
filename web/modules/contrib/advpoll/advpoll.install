@@ -1,0 +1,88 @@
+<?php
+
+use Drupal\Core\Config\FileStorage;
+use Drupal\Core\Database\Database;
+
+/**
+ * implements hook_uninstall
+ */
+function advpoll_uninstall() {
+  // clean up fields we added.
+  $entity_manager = \Drupal::service('entity_field.manager');
+  $fields = $entity_manager->getFieldDefinitions('poll', 'poll');
+
+  if (isset($fields['field_poll_type'])) {
+    $fields['field_poll_type']->delete();
+  }
+
+  if (isset($fields['field_writein'])) {
+    $fields['field_writein']->delete();
+  }
+
+  if (isset($fields['field_writein_multiple'])) {
+    $fields['field_writein_multiple']->delete();
+  }
+
+  if (isset($fields['field_number_of_votes'])) {
+    $fields['field_number_of_votes']->delete();
+  }
+
+  if (isset($fields['field_start_date'])) {
+    $fields['field_start_date']->delete();
+  }
+
+  // Clean up choice fields.
+  $choiceFields = $entity_manager->getFieldDefinitions('poll_choice', 'poll_choice');
+  if (isset($choiceFields['field_writein'])) {
+    $choiceFields['field_writein']->delete();
+  }
+}
+
+/**
+ * implements hook_install
+ */
+function advpoll_install() {
+  // remove primary key lock on poll vote table so that other vote types can be
+  // recorded.
+  $schema = Database::getConnection()->schema();
+  $schema->dropPrimaryKey('poll_vote');
+}
+
+/**
+ * Add availability of the multiple write-in options.
+ */
+function advpoll_update_8001() {
+  $configPath = drupal_get_path('module', 'advpoll') . '/config/install';
+  $source = new FileStorage($configPath);
+  $config_manager = Drupal::service('config.manager');
+
+  $entityTypeManager = Drupal::entityTypeManager();
+  $field_storage = $entityTypeManager->getStorage('field_storage_config');
+  $field_config = $entityTypeManager->getStorage('field_config');
+  // Only try to create the field if it doesn't already exist.
+  if (!$field_storage->load('poll.field_writein_multiple')) {
+    $config_record = $source->read('field.storage.poll.field_writein_multiple');
+    $entity_type = $config_manager->getEntityTypeIdByName('field.storage.poll.field_writein_multiple');
+
+    /** @var \Drupal\Core\Config\Entity\ConfigEntityStorageInterface $storage */
+    $storage = $entityTypeManager->getStorage($entity_type);
+
+    // Create the config entity.
+    $entity = $storage
+      ->createFromStorageRecord($config_record)
+      ->save();
+  }
+
+  if (!$field_config->load('poll.poll.field_writein_multiple')) {
+    $config_record = $source->read('field.field.poll.poll.field_writein_multiple');
+    $entity_type = $config_manager->getEntityTypeIdByName('field.field.poll.poll.field_writein_multiple');
+
+    /** @var \Drupal\Core\Config\Entity\ConfigEntityStorageInterface $storage */
+    $storage = $entityTypeManager->getStorage($entity_type);
+
+    // Create the config entity.
+    $entity = $storage
+      ->createFromStorageRecord($config_record)
+      ->save();
+  }
+}

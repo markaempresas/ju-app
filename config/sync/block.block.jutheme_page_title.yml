@@ -1,0 +1,38 @@
+uuid: 4a740a9d-a526-4452-bd3c-4168946fad17
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - webform
+  theme:
+    - jutheme
+_core:
+  default_config_hash: 0FTy79zz9Kpa_KBRdA0ntAt2JEz323XaAs_0YG4Ldlc
+id: jutheme_page_title
+theme: jutheme
+region: content
+weight: -6
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: visible
+  provider: core
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      article: article
+      webform: webform
+  webform:
+    id: webform
+    negate: false
+    context_mapping:
+      webform: '@webform.webform_route_context:webform'
+    webforms:
+      instrumento_de_verificacion_de_l: instrumento_de_verificacion_de_l

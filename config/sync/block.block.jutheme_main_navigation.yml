@@ -1,0 +1,27 @@
+uuid: 54ef80e3-ddad-4511-a10b-2fcb9d03d3ee
+langcode: es
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - jutheme
+_core:
+  default_config_hash: TkKd_20jZ6r_wmlw3BTpTHu23lFTYKIiiwWUe5h_GQc
+id: jutheme_main_navigation
+theme: jutheme
+region: nav_main
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Navegación principal'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: true
+visibility: {  }

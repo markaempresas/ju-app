@@ -1,0 +1,46 @@
+uuid: 2923c592-ba60-4294-aab2-b741423f1782
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_featured_item
+    - paragraphs.paragraphs_type.featured_content
+    - paragraphs.paragraphs_type.featured_item
+  module:
+    - entity_reference_revisions
+id: paragraph.featured_content.field_featured_item
+field_name: field_featured_item
+entity_type: paragraph
+bundle: featured_content
+label: 'Ítem de destacado'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      featured_item: featured_item
+    negate: 0
+    target_bundles_drag_drop:
+      buttons_home:
+        weight: 7
+        enabled: false
+      buttons_item:
+        weight: 8
+        enabled: false
+      featured_content:
+        weight: 9
+        enabled: false
+      featured_item:
+        weight: 10
+        enabled: true
+      main_slider:
+        weight: 11
+        enabled: false
+      slider_item:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

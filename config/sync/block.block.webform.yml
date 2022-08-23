@@ -1,0 +1,30 @@
+uuid: 29767db4-260a-41ee-a8b2-c0ceecf452b5
+langcode: es
+status: false
+dependencies:
+  config:
+    - webform.webform.instrumento_de_verificacion_de_l
+  module:
+    - system
+    - webform
+  theme:
+    - jutheme
+id: webform
+theme: jutheme
+region: content
+weight: 0
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: 'Instrumento de verificación de la jornada Única (instrumento_de_verificacion_de_l)'
+  label_display: visible
+  provider: webform
+  webform_id: instrumento_de_verificacion_de_l
+  default_data: ''
+  redirect: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /instrumento

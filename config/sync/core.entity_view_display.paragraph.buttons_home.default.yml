@@ -1,0 +1,24 @@
+uuid: 96bfc0e7-4612-4f8c-ad15-e51cd7c7f765
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.buttons_home.field_button_item
+    - paragraphs.paragraphs_type.buttons_home
+  module:
+    - entity_reference_revisions
+id: paragraph.buttons_home.default
+targetEntityType: paragraph
+bundle: buttons_home
+mode: default
+content:
+  field_button_item:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

@@ -1,0 +1,10 @@
+uuid: 3156219f-dd9b-4b17-9a25-9f66f4db19f6
+langcode: es
+status: true
+dependencies: {  }
+id: home_collection
+label: 'Colección home'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,167 @@
+<?php
+
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_modules_installed().
+ */
+function advpoll_modules_installed($modules) {
+  // Necessary to do this since it can't be done in config and field config needs to have been installed first.
+  // using https://www.drupal.org/docs/8/api/update-api/updating-entities-and-fields-in-drupal-8 example as guide
+  $form_display_storage = \Drupal::entityTypeManager()->getStorage('entity_form_display');
+
+  /** @var \Drupal\Core\Entity\Display\EntityFormDisplayInterface $form_display */
+  $form_display = $form_display_storage->load('poll.poll.default');
+  if (empty($form_display)) {
+    $form_display = $form_display_storage->create([
+      'targetEntityType' => 'poll',
+      'bundle' => 'poll',
+      'mode' => 'default',
+      'status' => TRUE,
+    ]);
+  }
+
+  $form_display->setComponent('field_poll_type', [
+    'type' => 'options_select',
+    'weight' => 1,
+    'region' => 'content'
+  ]);
+  $form_display->save();
+  $form_display->setComponent('field_writein', [
+    'type' => 'boolean_checkbox',
+    'weight' => 2,
+    'settings' => [
+      'display_label' => TRUE
+    ],
+    'region' => 'content'
+  ]);
+  $form_display->save();
+  $form_display->setComponent('field_writein_multiple', [
+    'type' => 'boolean_checkbox',
+    'weight' => 2,
+    'settings' => [
+      'display_label' => TRUE
+    ],
+    'region' => 'content'
+  ]);
+  $form_display->save();
+  $form_display->setComponent('field_number_of_votes', [
+    'type' => 'number',
+    'weight' => 3,
+    'region' => 'content'
+  ]);
+  $form_display->save();
+  $form_display->setComponent('field_start_date', [
+    'type' => 'datetime_default',
+    'weight' => 4,
+    'region' => 'content'
+  ]);
+  $form_display->save();
+}
+
+/**
+ * Implements hook_entity_view().
+ */
+function advpoll_entity_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  // reset lazy loader in Poll to use our service which will allow specific form output per poll type
+  if ($entity->getEntityType()->id() == 'poll') {
+    $build['poll'] = array(
+      '#lazy_builder' => [
+        'advpoll.post_render_cache:renderViewForm',
+        [
+          'id' => $entity->id(),
+          'view_mode' => $view_mode,
+          'langcode' => $entity->language()->getId(),
+        ],
+      ],
+      '#create_placeholder' => TRUE,
+      '#cache' => [
+        'tags' => $entity->getCacheTags(),
+      ],
+    );
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function advpoll_form_poll_edit_form_alter(&$form, FormStateInterface $form_state) {
+  /** @var \Drupal\poll\Entity\Poll $poll */
+  $poll = $form_state->getFormObject()->getEntity();
+
+  // Dynamic form for different poll types.
+  if (!empty($form['field_poll_type']['widget'])) {
+    // State for max number.
+    if (!empty($form['field_number_of_votes']['widget'][0]['value'])) {
+      $form['field_number_of_votes']['widget'][0]['value']['#states']['invisible'][] = [
+        ':input[name="field_poll_type"]' => ['value' => '_none'],
+      ];
+
+      if (empty($form['field_number_of_votes']['widget'][0]['value']['#default_value'])) {
+        $form['field_number_of_votes']['widget'][0]['value']['#default_value'] = 1;
+      }
+    }
+
+    // Validator and cleaner for hidden elements.
+    $form['#validate'][] = 'advpoll_form_poll_edit_form_validate';
+  }
+}
+
+/**
+ * Cleaner for the poll_edit_form.
+ */
+function advpoll_form_poll_edit_form_validate(&$form, FormStateInterface $form_state) {
+  $number_votes = $form_state->getValue('field_number_of_votes');
+  if ($number_votes && !empty($number_votes[0]['value'])) {
+    $poll_type = $form_state->getValue('field_poll_type');
+    if (empty($poll_type)) {
+      // For the single poll, set max number to 1.
+      $form_state->setValue('field_number_of_votes', [
+        ['value' => 1],
+      ]);
+    }
+    else {
+      // Otherwise validate maximum.
+      $choices = $form_state->getValue('choice');
+      if ($choices) {
+        unset($choices['add_more']);
+        $choices = array_filter($choices, function ($item) {
+          return !empty($item['target_id']);
+        });
+
+        $choices_count = count($choices);
+      }
+      else {
+        $choices_count = 0;
+      }
+
+      if ($number_votes[0]['value'] > $choices_count) {
+        $form_state->setErrorByName('field_number_of_votes', t('Max votes should be less than or equal of the choices count.'));
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function advpoll_theme() {
+  return [
+    'poll_vote__advanced' => [
+      'template' => 'poll-vote--advanced',
+      'base hook' => 'poll_vote',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function advpoll_module_implements_alter(&$implementations, $hook) {
+  // Disabling cron from the Poll module because it disables all ended polls.
+  if ($hook == 'cron') {
+    unset($implementations['poll']);
+  }
+}

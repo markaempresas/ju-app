@@ -1,0 +1,34 @@
+uuid: e790114e-d827-4bd7-8414-ea9783edf832
+langcode: es
+status: true
+dependencies:
+  config:
+    - node.type.webform
+  module:
+    - node
+    - webform
+    - webform_score
+    - webform_submission_log
+id: gestor
+label: Gestor
+weight: 5
+is_admin: null
+permissions:
+  - 'access any webform configuration'
+  - 'access own webform configuration'
+  - 'access webform help'
+  - 'access webform overview'
+  - 'access webform submission log'
+  - 'access webform submission user'
+  - 'administer webform'
+  - 'administer webform element access'
+  - 'administer webform submission'
+  - 'create webform content'
+  - 'edit any webform'
+  - 'edit any webform submission'
+  - 'edit own webform'
+  - 'edit own webform content'
+  - 'edit own webform submission'
+  - 'view any submission score'
+  - 'view any webform submission'
+  - 'view own webform submission'

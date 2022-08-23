@@ -1,0 +1,66 @@
+{#
+/**
+ * @file
+ * Default theme implementation for webform wizard progress tracker.
+ *
+ * Available variables:
+ * - webform: A webform.
+ * - pages: Associative array of wizard pages.
+ * - progress: Array of wizard progress containing page titles.
+ * - current_page: Current wizard page key.
+ * - current_index: The current wizard page index.
+ * - max_pages: Maximum number of pages that progress text should be displayed on.
+ *
+ * @see template_preprocess_webform_progress_tracker()
+ * @see https://www.w3.org/WAI/tutorials/forms/multi-page/
+ *
+ * @ingroup themeable
+ */
+#}
+{{ attach_library('webform/webform.progress.tracker') }}
+<div class="js_gn_carousel_controls progress__pagination__prev">
+  <span class="js_gn_carousel__prev_arrow">
+    <i class="fa-solid fa-angle-left progress__pagination__icon"></i>
+  </span>
+</div>
+<div class="js_gn_carousel_controls progress__pagination__next">
+  <span class="js_gn_carousel__next_arrow">
+    <i class="fa-solid fa-angle-right progress__pagination__icon"></i>
+  </span>
+</div>
+<ul class="webform-progress-tracker progress-tracker progress-tracker--center progress" data-webform-progress-steps>
+  {% for index, page in progress %}
+    {% set is_completed = index < current_index %}
+    {% set is_active = index == current_index %}
+    {%
+      set classes = [
+        'progress-step',
+        'progress__step',
+        is_completed ? 'is-complete progress__step--complete',
+        is_active ? 'is-active progress__step--active',
+      ]
+    %}
+    {%
+      set attributes = create_attribute()
+        .setAttribute('data-webform-' ~ page.type, page.name)
+        .setAttribute('title', page.title)
+        .setAttribute('class', '')
+        .addClass(classes)
+    %}
+    <li{{ attributes }}>
+      <div class="progress__wrapper">
+        <div class="progress__caption">
+          {% if progress|length < max_pages %}
+            <div class="progress-text progress__text">
+              <div class="progress-title progress__title" data-webform-progress-link>
+                <span class="progress-marker progress__marker" data-webform-progress-step data-webform-progress-link data-text="{{ index + 1 }}"></span>
+                <span class="visually-hidden" data-webform-progress-state>{% if is_active or is_completed %}{{ is_active ? 'Current'|t : 'Completed'|t }}{% endif %}</span>
+                {{ page.title }}
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
